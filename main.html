@@ -27,20 +27,15 @@
         <div style="padding: 3%;">
             <div id="cit_tab">
                 <div style="display: flex;">
-                    <div style="flex: 60%;">
+                    <div style="flex: 63%;">
                         Experiment title:
                         <input type="text" onkeypress='valid_chars(event)' id="subj_num_id" class="form_start" maxlength="20" size="20" value="CIT_app_test">
                         <br><br> Subject ID:
                         <input type="text" onkeypress='valid_chars(event)' id="subj_num_id" class="form_start" maxlength="15" size="15">
                         <br><br> CIT version:
-                        <div class="select" style="display: inline;">
-                            <select id="cit_version_id">
-                    <option value="1">enhanced</option>
-                    <option value="2">standard</option>
-                    <option value="3">no-target</option>
-                    </select>
-                            <div class="select__arrow">&#9660;</div>
-                        </div>
+                        <input type="radio" id="enhanced_id" name="cit_version" checked="checked" value="1"><label for="enhanced_id">enhanced</label>
+                        <input type="radio" id="standard_id" name="cit_version" value="0"><label for="standard_id">standard</label>
+                        <input type="radio" id="notarget_id" name="cit_version" value="2"><label for="notarget_id">no-target</label>
 
                         <br><br> Number of blocks:
                         <input type="radio" id="1block" name="num_of_blcks" checked="checked" value="1"><label for="1block">1</label>
@@ -52,7 +47,7 @@
                         <input type="radio" id="dems_no" name="dems_mandatory" value="1"><label for="dems_no">yes</label>
                     </div>
 
-                    <div style="flex: 40%;">
+                    <div style="flex: 37%;">
                         Probe:
                         <input type="text" id="probe_id" class="form_start" maxlength="40" size="15">
                         <br>
