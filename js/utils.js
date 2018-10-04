@@ -1,12 +1,6 @@
 // translation
 var tranlate_count = 0;
 
-function inse(str, index, count, add) {
-    var ar = str.split('');
-    ar.splice(index, count, add);
-    return ar.join('');
-}
-
 capitalize = function(str1) {
     return str1.charAt(0).toUpperCase() + str1.slice(1);
 };
@@ -93,13 +87,34 @@ function check_selected() {
     }
     return is_valid;
 }
-
+var inducer_items;
+var s_captions, e_captions;
 function starter() {
     condition = 0; // always standard CIT guilty
     cat_order = $("#name_order_id").val();
     subj_id = $("#subj_num_id").val();
+    inducer_items = [
+        $("#i_1_id").val(),
+        $("#i_2_id").val(),
+        $("#i_3_id").val(),
+        $("#i_4_id").val(),
+        $("#i_5_id").val(),
+        $("#i_6_id").val(),
+        $("#i_7_id").val(),
+        $("#i_8_id").val(),
+        $("#i_9_id").val()
+    ];
+    s_captions = [
+        $("#s_top_id").val(),
+        $("#s_left_id").val(),
+        $("#s_right_id").val()
+    ];
+    e_captions = [
+        $("#e_top_id").val(),
+        $("#e_left_id").val(),
+        $("#e_right_id").val()
+    ];
 }
-
 //background changes
 function darken_bg() {
     $("#html_id").css("background", bg_color);

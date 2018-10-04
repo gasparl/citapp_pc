@@ -16,7 +16,7 @@
 
 <body>
 
-    <div id="div_intro_general" class="intro" style="text-align:left;padding: 0;width: 80%;">
+    <div id="div_intro_general" class="intro" style="text-align:left;padding: 0;">
 
 
         <ul id="nav_menu" style="font-variant: small-caps;font-size: 1.6vw;">
@@ -24,7 +24,7 @@
             <li class="menu_list" id="settings_tab_nav" onclick="change_menu('settings_tab')"><a>Settings</a></li>
             <li class="menu_list" style="float: right;" id="about_tab_nav" onclick="change_menu('about_tab')"><a>About</a></li>
         </ul>
-        <div style="padding: 3%;">
+        <div style="padding: 3%;overflow: auto;height:78%;">
             <div id="cit_tab">
                 <div style="display: flex;">
                     <div style="flex: 63%;">
@@ -33,9 +33,9 @@
                         <br><br> Subject ID:
                         <input type="text" onkeypress='valid_chars(event)' id="subj_num_id" class="form_start" maxlength="15" size="15">
                         <br><br> CIT version:
-                        <input type="radio" id="enhanced_id" name="cit_version" checked="checked" value="1"><label for="enhanced_id">enhanced</label>
                         <input type="radio" id="standard_id" name="cit_version" value="0"><label for="standard_id">standard</label>
-                        <input type="radio" id="notarget_id" name="cit_version" value="2"><label for="notarget_id">no-target</label>
+                        <input type="radio" id="enhanced_id" name="cit_version" checked="checked" value="1"><label for="enhanced_id">enhanced</label>
+                        <!--<input type="radio" id="notarget_id" name="cit_version" value="2"><label for="notarget_id">no-target</label>-->
 
                         <br><br> Number of blocks:
                         <input type="radio" id="1block" name="num_of_blcks" checked="checked" value="1"><label for="1block">1</label>
@@ -81,11 +81,216 @@
             </div>
 
             <div id="settings_tab" style="display: none;">
-                Here are more settings.
+
+
+                <div style="display: flex;">
+                    <div style="flex: 50%;">
+                        <b><u>Reminder captions</u> (practice phase)</b>
+                        <br><br>
+                        <b>Standard version</b>
+                        <br><br> Caption at the top:
+                        <input type="text" id="s_top_id" class="form_start" maxlength="40" size="15" value="recognize?">
+                        <br>
+                        <br>Caption at the left:
+                        <input type="text" id="s_left_id" class="form_start" maxlength="40" size="15" value='no = "E"'>
+                        <br>
+                        <br>Caption at the right:
+                        <input type="text" id="s_right_id" class="form_start" maxlength="40" size="15" value='yes = "I"'>
+                        <br>
+                        <br>
+                        <br>
+                        <b>Enhanced version</b>
+                        <br><br> Caption at the top:
+                        <input type="text" id="e_top_id" class="form_start" maxlength="40" size="15" value="familiar to you?">
+                        <br>
+                        <br>Caption at the left:
+                        <input type="text" id="e_left_id" class="form_start" maxlength="40" size="15" value='unfamiliar = "E"'>
+                        <br>
+                        <br>Caption at the right:
+                        <input type="text" id="e_right_id" class="form_start" maxlength="40" size="15" value='familiar = "I"'>
+
+                    </div>
+                    <div style="flex: 50%;">
+                        <b><u>Inducers in the enhanced version</u></b>
+                        <br>
+                        <br>
+                        <span style="line-height: 2.2;">
+                        Familiar-referring (1):
+                        <input type="text" id="i_1_id" class="form_start" maxlength="40" size="15" value='FAMILIAR'>
+
+                        <br>Familiar-referring (2):
+                        <input type="text" id="i_2_id" class="form_start" maxlength="40" size="15" value='RECOGNIZED'>
+
+                        <br>Familiar-referring (3):
+                        <input type="text" id="i_3_id" class="form_start" maxlength="40" size="15" value='MINE'>
+
+                        <br>Unfamiliar-referring (1):
+                        <input type="text" id="i_4_id" class="form_start" maxlength="40" size="15" value='UNFAMILIAR'>
+
+                        <br>Unfamiliar-referring (2):
+                        <input type="text" id="i_5_id" class="form_start" maxlength="40" size="15" value='UNKNOWN'>
+
+                        <br>Unfamiliar-referring (3):
+                        <input type="text" id="i_6_id" class="form_start" maxlength="40" size="15" value='OTHER'>
+
+                        <br>Unfamiliar-referring (4):
+                        <input type="text" id="i_7_id" class="form_start" maxlength="40" size="15" value='THEIRS'>
+
+                        <br>Unfamiliar-referring (5):
+                        <input type="text" id="i_8_id" class="form_start" maxlength="40" size="15" value='THEM'>
+
+                        <br>Unfamiliar-referring (6):
+                        <input type="text" id="i_9_id" class="form_start" maxlength="40" size="15" value='FOREIGN'>
+                    </span>
+
+                    </div>
+
+                </div>
+
+
+
             </div>
 
-            <div id="about_tab" style="display: none;">
-                Here is a bunch of info.
+            <div id="about_tab" style="display: none;text-align: justify;">
+                <p>
+                    No deception detection method has been scientifically proven to achieve perfect or close-to-perfect accuracies in discriminating guilty persons from innocent ones, notwithstanding the claims of some commercial services and products. The most efficient
+                    "Concealed Information Test" version in the present application ("enhanced") achieved a remarkably high accuracy in a recent study (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>),
+                    but even so it can only be said to provide an accuracy of roughly around 90% – under certain conditions – and it still needs further research and replications. Correspondingly,
+                    <b>this application is only for testing and research purposes, and no serious judgments should be based on its results</b>. Furthermore, anyone using it should have at least a basic understanding of how it works – see below by sections
+                    <a class="links" href="#sect_cit_versions">The CIT versions</a>, <a class="links" href="#sect_numofblocks">Number of blocks</a>, <a class="links" href="#sect_dems">Demographics</a>, <a class="links" href="#sect_eval">Evaluation</a>,
+                    <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_plans">Planned features</a>.
+
+
+                </p>
+
+                <p class="subtitle" id="sect_cit_versions">The CIT versions</p>
+
+                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT): <i>standard</i> and <i>enhanced</i>. Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> –
+                    is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the experimenter. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is a stolen suitcase, and the irrelevant and targets are other suitcases).</b></p>
+                <p>
+                    <u>Standard RT-CIT</u>: it has one probe, one target, and four irrelevant items. The target item will require a different response in the task, otherwise it is the same as an irrelevant item. A person who knows the relevance of the
+                    probe (e.g., because he stole the suitcase) will tend to make slower responses to it than to the irrelevant items.
+                    <br>
+                    <span class="expandable" id="expand1" onclick="$(this).hide();$('#expand_content1').show();$('#hide1').show();">Expand.</span>
+                    <span class="expandable" id="hide1" onclick="$(this).hide();$('#expand_content1').hide();$('#expand1').show();" style="display:none;">(Hide.)<br></span>
+                    <span class="expanded" id="expand_content1">
+                        In the standard RT-CIT, participants classify the presented stimuli as the target or as one of several non-targets by pressing one of two keys. Five non-targets are presented, among which one is the probe, which is an item that only a guilty person would
+                        recognize, and the rest are irrelevants, which are similar to the probe and thus indistinguishable from it for an innocent person. For example, in a murder case where the true murder weapon was a knife, the probe could be the word
+                        “knife,” while irrelevants could be “gun,” “rope,” etc. Assuming that the innocent examinees are not informed about how the murder was committed, they would not know which of the items is the probe. The items are repeatedly shown
+                        in a random sequence, and all of them have to be responded to with the same response keys, except one arbitrary target – a randomly selected, originally also irrelevant item that has to be responded to with the other response key.
+                        Since guilty examinees recognize the probe as the relevant item in respect of the deception detection scenario, it will become unique among the irrelevants and in this respect more similar to the rarely occurring target. Due to
+                        this conflict between instructed response classification of probes as irrelevants on the one hand, and probes’ uniqueness and, thus, greater similarity to the alternative response classification as potential targets on the other
+                        hand, the response to the probe will be generally slower in comparison to the irrelevants, and thus, based on the probe-to-irrelevant RT differences, guilty examinees can be distinguished from innocent examinees.
+                    </span>
+
+                    <p>
+                        <u>Enhanced RT-CIT</u>: in addition to the items in the standard RT-CIT, this has familiarity-related "inducer" items that increase the awareness of the lie detection context, and thereby largely increase the probe-irrelevant difference
+                        (even slower responses to the probe). <br>
+                        <span class="expandable" id="expand2" onclick="$(this).hide();$('#expand_content2').show();$('#hide2').show();">Expand.</span>
+                        <span class="expandable" id="hide2" onclick="$(this).hide();$('#expand_content2').hide();$('#expand2').show();" style="display:none;">(Hide.)<br></span>
+                        <span class="expanded" id="expand_content2">
+                    These inducer items induce a particular semantic context that increases the sensitivity of the method for the deception-related meaning of the probe. In the original study [link], the probes were general autobiographical details (birthday,
+                        favorite color, etc.), and, correspondingly, the inducers were familiarity-related: Inducers referring to the category familiar (e.g., “FAMILIAR,” “MINE”) had to be categorized with the same key as the target and, thus, with the
+                        opposite key than the probe (and the irrelevants), while inducers referring to the category unfamiliar (e.g., “OTHER,” “THEIRS”) had to be categorized with the same key as the probe (and irrelevants). It was assumed that in this
+                        way the inducers draw attention to the semantic meaning of the alternative response choices in view of the deception detection scenario (namely, that guilty examinees are denying their familiarity with the probe), thereby increasing
+                        the response conflict when the probe appears, making the response even slower. Moreover, the increased cognitive load (due to the increased complexity) also requires more attention throughout the task, which likely facilitates
+                        deeper processing of the stimuli. This method robustly increased the CIT accuracy of distinguishing guilty examinees from innocent ones.
+                        </span>
+                    </p>
+                    <!-- <p>
+                        No-target RT-CIT: this method includes no targets, relies only on response associations created by the inducers, and thereby it may be used fairly efficiently even when an innocent person is aware of the probe (e.g., even if a person knows the stolen suitcase, he will not respond to it slower, except if he is guilty). However, this method is much less efficient then the enhanced RT-CIT above, and also needs more research. Expand.
+                    </p> -->
+
+                    <p class="subtitle" id="sect_numofblocks">Number of blocks</p>
+
+                    <p>
+                        One block with the same length and arrangement as in all recent studies (e.g., <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>). There is no data to
+                        show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than three would probably
+                        not serve much additional information even on the individual level.<br>
+                        <span class="expandable" id="expand3" onclick="$(this).hide();$('#expand_content3').show();$('#hide3').show();">Expand.</span>
+                        <span class="expandable" id="hide3" onclick="$(this).hide();$('#expand_content3').hide();$('#expand3').show();" style="display:none;">(Hide.)<br></span>
+                        <span class="expanded" id="expand_content3">
+                            In each block, each probe, irrelevant, and target is repeated 18 times (hence altogether 54 probe, 216 irrelevant, and 54 target trials). The order of the items is randomized in groups: first, all five or six items (one probe, four irrelevant, and one target) in the given category are presented in a random order, then the same six items are presented in another random order (but with the restriction that the first item in the next group is never the same as the last item in the previous group).  In the enhanced version, inducers are placed among these items in a random order, but with the restrictions that an inducer trial is never followed by another inducer trial, and each of the nine inducers (three familiarity-referring, six unfamiliarity- referring) precedes each of the three probes, three targets (for Induced, but not for No-target), and 12 irrelevants exactly one time. (Thus 9 × 18 = 162 inducers are presented in the Induced CIT, and 162 out of the 324 other items are preceded by an inducer.)
+                        </span>
+                    </p>
+
+
+                    <p class="subtitle" id="sect_dems">Demographics</p>
+
+                    <p>Simply for convenient data collection in experiments, some demographic details may be asked in the beginning of the test. This can be set to mandatory, in which case the examinee cannot proceed without filling out these details.
+                    </p>
+
+                    <p class="subtitle" id="sect_eval">Evaluation</p>
+
+                    <p>
+                        As an intra-individual effect size (<a class="links" href="https://doi.org/10.1002/acp.2910" target="_blank">Noordraven & Verschuere, 2013</a>), a <i>d</i><sub>CIT</sub> can be calculated as the probe RT mean minus the irrelevant
+                        RT mean, divided by the standard deviation of irrelevant RTs: ( <i>M</i><sub>RT(probe)</sub> − <i>M</i><sub>RT(irrelevant)</sub> ) / <i>SD</i><sub>RT(irrelevant)</sub>
+                        <br>The values of this measure typically fall between around -0.3 and 0.8; where a larger number always indicates a larger likelihood of guilt (i.e., recognition of the probe). The optimal cut-off value used as a boundary for the
+                        evaluation as guilty or innocent varies by study. <br>Still, for an immediate informative feedback for each test in this in this application, evaluative labels were implemented with boundaries based on a rough approximation in
+                        view of previous results. These boundaries are depicted in the following table.
+
+                        <table align="center">
+
+                            <tr class="border_bottom">
+                                <th>Boundaries</th>
+
+                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                <th>Evaluative label</th>
+                            </tr>
+                            <tr>
+                                <td><i>d</i><sub>CIT</sub> > 0.4</td>
+                                <td></td>
+                                <td>strong indication of guilt</td>
+                            </tr>
+                            <tr>
+                                <td><i>d</i><sub>CIT</sub> > 0.3 and <i>d</i><sub>CIT</sub>
+                                    <=0 .4</td>
+                                        <td></td>
+                                        <td>fair indication of guilt</td>
+                            </tr>
+                            <tr>
+                                <td><i>d</i><sub>CIT</sub> > 0.1 and <i>d</i><sub>CIT</sub>
+                                    <=0 .3</td>
+                                        <td></td>
+                                        <td>weak indication of guilt</td>
+                            </tr>
+                            <tr>
+                                <td><i>d</i><sub>CIT</sub> > 0 and <i>d</i><sub>CIT</sub>
+                                    <=0 .1</td>
+                                        <td></td>
+                                        <td>indeterminate</td>
+                            </tr>
+                            <tr>
+                                <td><i>d</i><sub>CIT</sub> > -0.1 and <i>d</i><sub>CIT</sub>
+                                    <= 0</td>
+                                        <td></td>
+                                        <td>weak indication of innocence</td>
+                            </tr>
+                            <tr class="border_bottom">
+                                <td><i>d</i><sub>CIT</sub>
+                                    <=- 0.1</td>
+                                        <td></td>
+                                        <td>fair indication of innocence</td>
+                            </tr>
+
+                        </table>
+                        <br> (Note that there is no strong indication of innocence: a very fast probe response is no more expected in case of innocence than in case of guilt.)
+                    </p>
+
+
+                    <p class="subtitle" id="sect_settings">Settings</p>
+
+                    <p>
+                        Currently the settings (apart from those on the main page) involve only the possibility to change the captions on the screen. These all contain their default value on start-up, which can be overwritten if needed. In particular, inducers may be modified
+                        to the native language of the examinee. The instructions can be either explained or (since precise translation is not of essence in this case) they can be auto-translated (e.g. google-translate in Chrome).
+                    </p>
+
+                    <p class="subtitle" id="sect_plans">Planned features</p>
+                    - A no-target version will be implemented as soon as the related manuscript is accepted for publication
+                    <br> - More detailed end feedback; graphs based on the results (e.g. RT density per item)
+                    <br> - More settings; in particular the possibility to change any of the instruction texts
+                    <br> - Possibility to store settings locally
+                    <br> - Graphic (pictorial) stimuli
             </div>
         </div>
     </div>

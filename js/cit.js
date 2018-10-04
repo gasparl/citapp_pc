@@ -4,7 +4,11 @@
 
 var block_texts = [];
 var first_categ;
-var all_main_rts = { "probs": [], "irrs": [] };
+var all_main_rts = {
+    "probs": [],
+    "irrs": []
+};
+
 function set_block_texts() {
     var change_hint;
     if (distance_order == 'wide1st') {
@@ -17,11 +21,11 @@ function set_block_texts() {
     } else {
         target_reminder = [
             "Remember: in this category, your target that requires a different response is <b>" +
-                stim_base[0][1].word.toUpperCase() +
-                "</b>. ",
+            stim_base[0][1].word.toUpperCase() +
+            "</b>. ",
             "Remember: in this category, your target that requires a different response is <b>" +
-                stim_base[1][1].word.toUpperCase() +
-                "</b>. "
+            stim_base[1][1].word.toUpperCase() +
+            "</b>. "
         ];
     }
     block_texts[0] = "";
@@ -77,10 +81,12 @@ function getPracticeTestStimuli_simple() {
         prac_teststim.push.apply(prac_teststim, blocksOf108.slice(0, 6));
     });
 }
+
 function getAllTestStimuli_simple() {
     //same as above, but for the full test: 3x36=108 stimuli from each of the 3 categories
     teststim = randomDegradePlus(stim_base[blocknum - 4]);
 }
+
 function getPracticeTestStimuli_induced() {
     //27 degraded prac_teststim from all 3 categories (9+9+9)
     prac_teststim = [];
@@ -89,10 +95,12 @@ function getPracticeTestStimuli_induced() {
         prac_teststim.push.apply(prac_teststim, blocksOf162.slice(0, 9));
     });
 }
+
 function getAllTestStimuli_induced() {
     //same as above, but one block of the full test: 162 stimuli from each of the 3 categories
     teststim = inducersAdded(stim_base[blocknum - 4]);
 }
+
 function inducersAdded(groupOf6) {
     var stim_162_base = randomDegradePlus(groupOf6);
     var inducers = inducersGen();
@@ -108,18 +116,8 @@ function inducersAdded(groupOf6) {
     stim_162 = stim_162_base;
     return stim_162;
 }
+
 function inducersGen() {
-    inducer_items = [
-        "FAMILIAR",
-        "RECOGNIZED",
-        "MINE",
-        "UNFAMILIAR",
-        "UNKNOWN",
-        "OTHER",
-        "THEIRS",
-        "THEM",
-        "FOREIGN"
-    ];
     inducers_base = [];
     inducer_items.forEach(function(word, ind) {
         inducers_base.push({
@@ -134,6 +132,7 @@ function inducersGen() {
     });
     return inducers_base;
 }
+
 function randomDegradePlus(arrayOf6dicts) {
     // using blur-noblur attributes, assigns (to blurs) a number from 1-3 for each filler type (* or # or %) in a balanced manner
     var tempCopy6 = $.extend(true, [], arrayOf6dicts);
@@ -171,13 +170,12 @@ function randomDegradePlus(arrayOf6dicts) {
 // these below are declared globally so that next 36 stim generation will also not start with same as last
 var lastOf6filler = "none";
 var lastOf6word = "none";
+
 function randomDegrade(arrayOf6dicts) {
     // takes an array of six dictionary items, returns 36 items randomized in groups of 6, with randomly varying blur/filler attributes
     var stims_cat_base = shuffle(arrayOf6dicts);
     var stimuli_base36 = $.extend(
-        true,
-        [],
-        [
+        true, [], [
             stims_cat_base,
             stims_cat_base,
             stims_cat_base,
@@ -350,6 +348,7 @@ function flash_false() {
 
 // if there is a sole mistake in the first practice block, the block is repeated
 var first_correct = true;
+
 function first_prac_wrong() {
     if (blocknum == 1) {
         teststim = [];
@@ -364,18 +363,18 @@ var practice_stim, main_stim, div_after_instr;
 
 function set_cit_conditions() {
     var inducers_instructions =
-        '<br><br>As continual reminders, there will also appear words that belong to one of the two categories (FAMILIAR or UNFAMILIAR). <br>Words belonging to the FAMILIAR category need the answer FAMILIAR ("I" key). These words are: <b>FAMILIAR</b>, <b>RECOGNIZED</b>, <b>MINE</b><br>Words belonging to the UNFAMILIAR category need the answer UNFAMILIAR ("E" key). These words are: <b>UNFAMILIAR</b>, <b>UNKNOWN</b>, <b>OTHER</b>, <b>THEIRS</b>, <b>THEM</b>, <b>FOREIGN</b></br></br>';
+        '<br><br>As continual reminders, there will also appear words that belong to one of the two categories (FAMILIAR or UNFAMILIAR). <br>Words belonging to the FAMILIAR category need the answer FAMILIAR ("I" key). These words are: <b>' + inducer_items[0] + '</b>, <b>' + inducer_items[1] + '</b>, <b>' + inducer_items[2] + '</b><br>Words belonging to the UNFAMILIAR category need the answer UNFAMILIAR ("E" key). These words are: <b>' + inducer_items[3] + '</b>, <b>' + inducer_items[4] + '</b>, <b>' + inducer_items[5] + '</b>, <b>' + inducer_items[6] + '</b>, <b>' + inducer_items[7] + '</b>, <b>' + inducer_items[8] + '</b></br></br>';
     if (condition == 0 || condition == 3) {
         // standard CIT
         div_after_instr = "#div_target_check";
         $("#task_instruction").html(
             'Pressing the "I" key means "YES, I recognize this item as a relevant". Pressing the "E" key means "NO, I do not recognize this item as relevant". <br> You will see words (forenames, surnames) appearing in the middle of the screen. You have to recognize and say YES to the following target details: <b>' +
-                the_targets.join("</b>, <b>").toUpperCase() +
-                "</b><br>You have to say NO to all other details. Remember: you are denying that you recognize any of the other details as relevant to you, so you have to say NO to all of them.<br><br>"
+            the_targets.join("</b>, <b>").toUpperCase() +
+            "</b><br>You have to say NO to all other details. Remember: you are denying that you recognize any of the other details as relevant to you, so you have to say NO to all of them.<br><br>"
         );
-        $("#label_top").html("recognize?");
-        $("#label_right").html('yes = "I"');
-        $("#label_left").html('no = "E"');
+        $("#label_top").html(s_captions[0]);
+        $("#label_right").html(s_captions[1]);
+        $("#label_left").html(s_captions[2]);
         practice_stim = getPracticeTestStimuli_simple;
         main_stim = getAllTestStimuli_simple;
     } else if (condition == 1 || condition == 4) {
@@ -383,13 +382,13 @@ function set_cit_conditions() {
         div_after_instr = "#div_target_check";
         $("#task_instruction").html(
             'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words (forenames, surnames) appearing in the middle of the screen. You have to say FAMILIAR to the following target details: <b>' +
-                the_targets.join("</b>, <b>").toUpperCase() +
-                "</b><br>You have to say UNFAMILIAR to all other actual details (other forenames, surnames). Remember: you are denying that you recognize any of these other details as relevant to you, so you have to say UNFAMILIAR to all of them. " +
-                inducers_instructions
+            the_targets.join("</b>, <b>").toUpperCase() +
+            "</b><br>You have to say UNFAMILIAR to all other actual details (other forenames, surnames). Remember: you are denying that you recognize any of these other details as relevant to you, so you have to say UNFAMILIAR to all of them. " +
+            inducers_instructions
         );
-        $("#label_top").html("familiar to you?");
-        $("#label_right").html('familiar = "I"');
-        $("#label_left").html('unfamiliar = "E"');
+        $("#label_top").html(e_captions[0]);
+        $("#label_right").html(e_captions[1]);
+        $("#label_left").html(e_captions[2]);
         practice_stim = getPracticeTestStimuli_induced;
         main_stim = getAllTestStimuli_induced;
     } else if (condition == 2 || condition == 5) {
@@ -397,11 +396,11 @@ function set_cit_conditions() {
         div_after_instr = "#div_cit_blockstart";
         $("#task_instruction").html(
             'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words (forenames, surnames) appearing in the middle of the screen. You have to say UNFAMILIAR to all these details. Remember: you are denying that you recognize any of these details as relevant to you, so you have to say UNFAMILIAR to all of them. ' +
-                inducers_instructions
+            inducers_instructions
         );
-        $("#label_top").html("familiar to you?");
-        $("#label_right").html('familiar = "I"');
-        $("#label_left").html('unfamiliar = "E"');
+        $("#label_top").html(e_captions[0]);
+        $("#label_right").html(e_captions[1]);
+        $("#label_left").html(e_captions[2]);
         practice_stim = getPracticeTestStimuli_induced;
         main_stim = getAllTestStimuli_induced;
     }
@@ -426,18 +425,20 @@ function item_display() {
 }
 // isi
 var isi_delay;
+
 function isi() {
     isi_delay = randomdigit(1, isi_delay_minmax[1] - isi_delay_minmax[0]);
     setTimeout(function() {
         item_display();
     }, isi_delay);
 }
+
 function post_resp_hold() {
     $("#stimulus").text("");
     setTimeout(function() {
-    listn_end = false;
-    add_response();
-  }, isi_delay_minmax[0]);
+        listn_end = false;
+        add_response();
+    }, isi_delay_minmax[0]);
 }
 
 it_type_feed_dict = {
@@ -464,10 +465,10 @@ function practice_eval() {
                 is_valid = false;
                 types_failed.push(
                     " " +
-                        it_type_feed_dict[it_type] +
-                        " (" +
-                        Math.floor(corr_ratio * 10000) / 100 +
-                        "% correct)"
+                    it_type_feed_dict[it_type] +
+                    " (" +
+                    Math.floor(corr_ratio * 10000) / 100 +
+                    "% correct)"
                 );
             }
         }
@@ -495,10 +496,10 @@ function main_eval() {
             verylow = true;
             types_failed.push(
                 " " +
-                    it_type_feed_dict[it_type] +
-                    " (" +
-                    Math.floor(corr_ratio * 10000) / 100 +
-                    "% correct)"
+                it_type_feed_dict[it_type] +
+                " (" +
+                Math.floor(corr_ratio * 10000) / 100 +
+                "% correct)"
             );
         }
     }
@@ -512,6 +513,7 @@ function main_eval() {
 }
 
 var text_to_show;
+
 function next_trial() {
     if (teststim.length > 0) {
         tooslow = 0;
@@ -530,7 +532,7 @@ function next_trial() {
                 main_eval();
             }
             blocknum++;
-            if (blocknum == 3) {                
+            if (blocknum == 3) {
                 $("#label_top").html("");
                 $("#label_right").html("");
                 $("#label_left").html("");
@@ -617,6 +619,7 @@ function add_response() {
     next_trial();
 }
 var practice_num = 1;
+
 function call_practice_stim() {
     //takes halves of the practice stims generated
     if (practice_num % 2 == 1) {
@@ -632,6 +635,7 @@ function call_practice_stim() {
     }
     practice_num++;
 }
+
 function nextblock() {
     $("*").css("cursor", "auto");
     if (blocknum <= num_of_blocks) {
@@ -646,19 +650,6 @@ function nextblock() {
             response_deadline = response_deadline_main;
             call_practice_stim();
         } else {
-            if (blocknum == 6 ) {
-                if (distance_order == 'wide1st') {
-                    dstnc_state = 1;
-                    $("#label_top").html("familiar to you?");
-                    $("#label_right").html('familiar = "I"');
-                    $("#label_left").html('unfamiliar = "E"');
-                } else {
-                    dstnc_state = 0;
-                    $("#label_top").html("");
-                    $("#label_right").html("");
-                    $("#label_left").html("");
-                }
-            }
             response_deadline = response_deadline_main;
             main_stim();
         }
@@ -674,6 +665,7 @@ function nextblock() {
     }
 }
 var first_blockstart = true;
+
 function show_blockstart() {
     if (practice_repeated["block" + blocknum] == 0 || blocknum > 3) {
         $("#infotext").html(block_texts[blocknum]);
@@ -685,6 +677,7 @@ function show_blockstart() {
         $("#div_cit_blockstart").show();
     }
 }
+
 function runblock() {
     basic_times.blocks += "\nBlock " + blocknum + " start " + Date();
     $("*").css("cursor", "none");
@@ -693,10 +686,11 @@ function runblock() {
     $("#div_cit_main").show();
     can_start = true;
 }
+
 function start_trials() {
-  setTimeout(function() {
-    next_trial();
-  }, isi_delay_minmax[0]);
+    setTimeout(function() {
+        next_trial();
+    }, isi_delay_minmax[0]);
 }
 
 $(document).ready(function() {

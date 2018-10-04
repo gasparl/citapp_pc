@@ -16,14 +16,15 @@ input {
     border-radius: 0.2vw;
     font-size: 1.5vw;
     font-family: Helvetica;
-    width: 95%;
+    width: 80%;
+    height:93%;
     background-color: #cccccc;
     margin: 0 auto;
     padding: 2%;
     text-align: justify;
     display: none;
     position: absolute;
-    top: 5%;
+    top: 4%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -252,7 +253,10 @@ input {
     color: #FFFFFF;
     display: none;
 }
-
+.subtitle {
+    text-decoration: underline;
+    font-weight: bold;
+}
 #nav_menu {
     list-style-type: none;
     margin: 0;
@@ -312,4 +316,39 @@ input[type=text]
    padding: 0px 0px 0px 0px;
    font-weight: bold;
    font-size: 1.6vw;
+}
+.expandable {
+    color: #333;
+    cursor: pointer;
+    font-style: italic;
+}
+.active, .expandable:hover {
+    font-weight: bold;
+}
+.expanded {
+    display:none;
+    font-style: italic;
+}
+.links {
+    text-decoration:none;
+    font-style: italic;
+}
+.links:link {
+    color: #06060c;
+}
+.links:visited {
+    color: #06060c;
+}
+.links:hover {
+    color: #444;
+}
+.border_bottom td, th {
+  border-bottom: 1px solid black;
+}
+table td, th {
+    padding: 1px 1px 1px 1px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
 }
