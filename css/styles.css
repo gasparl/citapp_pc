@@ -295,7 +295,7 @@ label {
     display: inline-block;
     cursor: pointer;
     font-weight: bold;
-    padding: 4px 20px;
+    padding: 3px 20px;
     border: solid 1px #000;
 }
 
@@ -351,4 +351,9 @@ table td, th {
 table {
     border-collapse: separate;
     border-spacing: 0;
+}
+.hangindent {
+    margin-left: 3em;
+    text-indent: -3em;
+    display: block;
 }

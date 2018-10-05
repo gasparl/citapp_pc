@@ -9,12 +9,20 @@ var subj_id;
 var response_deadline, teststim, prac_teststim;
 var response_deadline_main = 800;
 var basic_times = {};
-var num_of_blocks = 5; // including practice, starting at 1
+var num_of_blocks; // including practice, starting at 1
 var bg_color = "#031116";
 var distance_order, dstnc_state, name_order;
+var browser_name = $.browser.name;
 
 $(document).ready(function() {
-    basic_times.loaded = Date();
-    basic_times.blocks = "";
+    chrome_check("Your browser was detected to be " + browser_name + "! This test was optimized for and should be run in Google Chrome. Please make sure you use the appropriate browser.");
     $("#div_intro_general").show(); //div_intro_general div_cit_main // div_items_test_probes //div_intro_consent div_outro_end
 });
+function chrome_check(detected_text) {
+    if (browser_name != "Chrome") {
+        console.log("Detected browser: " + browser_name + ". This application should be run in Google Chrome.");
+        alert(detected_text);
+        $("#not_chrome_warn").html("<br><i><b>Warning!</b> The application was designed for Google Chrome, but your browser was detected to be " + browser_name + ".</i>"); 
+        $("#not_chrome_warn").show();
+    }
+}

@@ -1,35 +1,36 @@
 
-var true_details
-
-var stim_base_6, stim_base, the_targets = [], the_probes = [], words_to_filter = [[], []];
+var stim_base, the_targets = [], the_probes = [];
 function create_stim_base() {
-    //creates a 6-item group - 1probe,1target,4irrelevants -
+    //creates a 6-item group - 1probe,1target,4irrelevants
+    words_array = [
+        $("#probe_id").val(),
+        $("#targ_id").val(),
+        $("#irr1_id").val(),
+        $("#irr2_id").val(),
+        $("#irr3_id").val(),
+        $("#irr4_id").val()
+    ];
+    var stim_base_temp = [];
     words_array.forEach(function(word, num) {
-        stim_base_temp[index].push({
+        stim_base_temp.push({
             word: word,
-            cat: categories[index]
+            cat: categories
         });
         if (0 === num) {
-            stim_base_temp[index][num].type = "probe";
+            stim_base_temp[num].type = "probe";
             the_probes.push(stim_base_temp[index][num].word);
         } else if (1 == num) {
-            stim_base_temp[index][num].type = "target";
+            stim_base_temp[num].type = "target";
             the_targets.push(stim_base_temp[index][num].word);
         } else {
-            stim_base_temp[index][num].type = "irrelevant" + (num - 1);
+            stim_base_temp[num].type = "irrelevant" + (num - 1);
         }
     });
-    if (cat_order == 1) {
-        stim_base = [
-            stim_base_temp[0],
-            stim_base_temp[1]
-        ];
-    } else {
-        stim_base = [
-            stim_base_temp[1],
-            stim_base_temp[0]
-        ];
-    }
+    stim_base = [
+            stim_base_temp,
+            stim_base_temp,
+            stim_base_temp
+    ];
     set_block_texts();
     set_cit_conditions();
 }

@@ -27,7 +27,7 @@
         <div style="padding: 3%;overflow: auto;height:78%;">
             <div id="cit_tab">
                 <div style="display: flex;">
-                    <div style="flex: 63%;">
+                    <div style="flex: 57%;line-height: 1.7;">
                         Experiment title:
                         <input type="text" onkeypress='valid_chars(event)' id="subj_num_id" class="form_start" maxlength="20" size="20" value="CIT_app_test">
                         <br><br> Subject ID:
@@ -42,12 +42,9 @@
                         <input type="radio" id="2block" name="num_of_blcks" value="2"><label for="2block">2</label>
                         <input type="radio" id="3block" name="num_of_blcks" value="3">
                         <label for="3block">3</label>
-                        <br><br> Demographic input mandatory:
-                        <input type="radio" id="dems_yes" name="dems_mandatory" checked="checked"><label for="dems_yes" value="0">no</label>
-                        <input type="radio" id="dems_no" name="dems_mandatory" value="1"><label for="dems_no">yes</label>
                     </div>
 
-                    <div style="flex: 37%;">
+                    <div style="flex: 43%;">
                         Probe:
                         <input type="text" id="probe_id" class="form_start" maxlength="40" size="15">
                         <br>
@@ -74,9 +71,10 @@
                 <br>
                 <i><b>Hints:</b> &#9679; close major running programs &#9679; disconnect internet &#9679; set fullscreen <span style="font-size:1.3vw;">(<b>F11</b> or <b>Fn + F11</b> or <b>Ctrl + Cmd + F</b>)</span></i>
                 <br>
+                <div id = "not_chrome_warn" style = "display: none;color:red;"></div>
                 <br>
                 <hr>
-                <button class="intro_button" style="position: absolute;left: 50%;transform: translateX(-50%)" onclick="change_div(this, '#div_intro_dems', validate_form('.form_start'), no_select_bg, starter)">START TEST</button>
+                <button class="intro_button" style="position: absolute;left: 50%;transform: translateX(-50%)" onclick="change_div('#div_intro_general', '#instructions', validate_form('.form_start'), no_select_bg, starter)">START TEST</button>
                 <br><br>
             </div>
 
@@ -157,16 +155,18 @@
                     "Concealed Information Test" version in the present application ("enhanced") achieved a remarkably high accuracy in a recent study (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>),
                     but even so it can only be said to provide an accuracy of roughly around 90% – under certain conditions – and it still needs further research and replications. Correspondingly,
                     <b>this application is only for testing and research purposes, and no serious judgments should be based on its results</b>. Furthermore, anyone using it should have at least a basic understanding of how it works – see below by sections
-                    <a class="links" href="#sect_cit_versions">The CIT versions</a>, <a class="links" href="#sect_numofblocks">Number of blocks</a>, <a class="links" href="#sect_dems">Demographics</a>, <a class="links" href="#sect_eval">Evaluation</a>,
-                    <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_plans">Planned features</a>.
+                    <a class="links" href="#sect_cit_versions">The CIT versions</a>, <a class="links" href="#sect_numofblocks">Number of blocks</a>,
+                    <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_results">Results</a>, <a class="links" href="#sect_eval">Evaluation</a>, <a class="links" href="#sect_plans">Planned features</a>, <a class="links" href="#sect_refs">References</a>,
+                    <a class="links" href="#sect_contanct">Contact</a>.
+
 
 
                 </p>
 
                 <p class="subtitle" id="sect_cit_versions">The CIT versions</p>
 
-                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT): <i>standard</i> and <i>enhanced</i>. Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> –
-                    is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the experimenter. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is a stolen suitcase, and the irrelevant and targets are other suitcases).</b></p>
+                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>): <i>standard</i> and <i>enhanced</i>.
+                    Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is a stolen suitcase, and the irrelevant and targets are other suitcases).</b></p>
                 <p>
                     <u>Standard RT-CIT</u>: it has one probe, one target, and four irrelevant items. The target item will require a different response in the task, otherwise it is the same as an irrelevant item. A person who knows the relevance of the
                     probe (e.g., because he stole the suitcase) will tend to make slower responses to it than to the irrelevant items.
@@ -215,9 +215,18 @@
                     </p>
 
 
-                    <p class="subtitle" id="sect_dems">Demographics</p>
+                    <p class="subtitle" id="sect_settings">Settings</p>
 
-                    <p>Simply for convenient data collection in experiments, some demographic details may be asked in the beginning of the test. This can be set to mandatory, in which case the examinee cannot proceed without filling out these details.
+                    <p>
+                        Currently the settings (apart from those on the main page) involve only the possibility to change the captions on the screen. These all contain their default value on start-up, which can be overwritten if needed. In particular, inducers may be modified
+                        to the native language of the examinee. The instructions can be either explained or (since precise translation is not of essence in this case) they can be auto-translated (e.g. Google-translate in Chrome).
+                    </p>
+
+                    <p class="subtitle" id="sect_results">Results</p>
+
+                    <p>
+                        At the end of the test, there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the results can be accessed several ways. %%%... with self-explanatory titles in the first
+                        row. /Expand.
                     </p>
 
                     <p class="subtitle" id="sect_eval">Evaluation</p>
@@ -225,9 +234,11 @@
                     <p>
                         As an intra-individual effect size (<a class="links" href="https://doi.org/10.1002/acp.2910" target="_blank">Noordraven & Verschuere, 2013</a>), a <i>d</i><sub>CIT</sub> can be calculated as the probe RT mean minus the irrelevant
                         RT mean, divided by the standard deviation of irrelevant RTs: ( <i>M</i><sub>RT(probe)</sub> − <i>M</i><sub>RT(irrelevant)</sub> ) / <i>SD</i><sub>RT(irrelevant)</sub>
+                        <br>This can be calculated from the results file, but it is also already automatically calculated and displayed at the end of each test in this application.
                         <br>The values of this measure typically fall between around -0.3 and 0.8; where a larger number always indicates a larger likelihood of guilt (i.e., recognition of the probe). The optimal cut-off value used as a boundary for the
-                        evaluation as guilty or innocent varies by study. <br>Still, for an immediate informative feedback for each test in this in this application, evaluative labels were implemented with boundaries based on a rough approximation in
-                        view of previous results. These boundaries are depicted in the following table.
+                        evaluation as guilty or innocent varies by study.
+                        <br>Still, for an immediate informative feedback for each test in this application, evaluative labels were implemented with boundaries based on a rough approximation in view of previous results. These boundaries are depicted in
+                        the following table.
 
                         <table align="center">
 
@@ -262,7 +273,7 @@
                             </tr>
                             <tr>
                                 <td><i>d</i><sub>CIT</sub> > -0.1 and <i>d</i><sub>CIT</sub>
-                                    <= 0</td>
+                                    <=0 </td>
                                         <td></td>
                                         <td>weak indication of innocence</td>
                             </tr>
@@ -278,12 +289,6 @@
                     </p>
 
 
-                    <p class="subtitle" id="sect_settings">Settings</p>
-
-                    <p>
-                        Currently the settings (apart from those on the main page) involve only the possibility to change the captions on the screen. These all contain their default value on start-up, which can be overwritten if needed. In particular, inducers may be modified
-                        to the native language of the examinee. The instructions can be either explained or (since precise translation is not of essence in this case) they can be auto-translated (e.g. google-translate in Chrome).
-                    </p>
 
                     <p class="subtitle" id="sect_plans">Planned features</p>
                     - A no-target version will be implemented as soon as the related manuscript is accepted for publication
@@ -291,68 +296,21 @@
                     <br> - More settings; in particular the possibility to change any of the instruction texts
                     <br> - Possibility to store settings locally
                     <br> - Graphic (pictorial) stimuli
+
+                    <p class="subtitle" id="sect_refs">References</p>
+
+                    <p>
+                        <span class="hangindent">
+                        Lukács, G., Kleinberg, B., & Verschuere, B. (2017). Familiarity-related fillers improve the validity of reaction time-based memory detection. <i>Journal of Applied Research in Memory and Cognition, 6</i>(3), 295–305. <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank" style="font-style: normal;">https://doi.org/10.1016/j.jarmac.2017.01.013</a></span>
+                        <span class="hangindent">Noordraven, E., & Verschuere, B. (2013). Predicting the Sensitivity of the Reaction Time-based Concealed Information Test: Detecting deception with the Concealed Information Test. <i>Applied Cognitive Psychology, 27</i>(3), 328–335. <a class="links" href="https://doi.org/10.1002/acp.2910" target="_blank" style="font-style: normal;">https://doi.org/10.1002/acp.2910</a></span>
+                        <span class="hangindent">Seymour, T. L., Seifert, C. M., Shafto, M. G., & Mosmann, A. L. (2000). Using response time measures to assess “guilty knowledge”. <i>Journal of Applied Psychology, 85</i>(1), 30–37. <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank" style="font-style: normal;">https://doi.org/10.1037//0021-9010.85.1.30</a></span>
+
+                    </p>
+                    <br>
+                    <p class="subtitle" id="sect_contanct" style="text-decoration:none;">Contact:<span style="font-weight: normal;"> gaspar.lukacs@univie.ac.at</span></p>
             </div>
         </div>
     </div>
-
-
-    <div id="div_intro_dems" style="text-align:left;width: 80%;padding-top: 0%;" class="intro">
-        <br>
-        <b>Please give the following demographic information about yourself.</b>
-        <br>
-        <br>Age:
-        <input type="text" onkeypress='valid_nums(event)' id="age" class="form_dems" maxlength="2" size="4"> &nbsp;&nbsp;&nbsp;&nbsp;Gender:
-        <select id="gender" class="form_dems">
-            <option value="">- choose one -</option>
-            <option value="1">Male</option>
-            <option value="2">Female</option>
-        </select>
-        <br>
-        <br>Are you left- or right-handed? (Which hand do you use for writing?)
-        <select id="handedness" class="form_dems">
-            <option value="">- choose one -</option>
-            <option value="1">left-handed</option>
-            <option value="2">right-handed</option>
-            <option value="3">mixed-handed or undecided</option>
-        </select>
-        <br>
-        <br>Your country of origin:
-        <select id="countries" style="text-transform: capitalize;" class="form_dems">
-            <option value="">- choose one -</option>
-            <option value="1">Osterreich</option>
-            <option value="2">Deutschland</option>
-            <option value="3">Switzerland</option>
-        </select>
-        <br>
-        <br>
-        <br>
-        <b>While the data will be eventually anonymized, we need your name as temporary material for the test.</b>
-        <br>
-        <br>Your forename:
-        <input type="text" id="forenames" class="form_dems" maxlength="14" size="20">
-        <br><br>
-        <br>Your surname:
-        <input type="text" id="surnames" class="form_dems" maxlength="14" size="20">
-        <br>
-        <br>
-        <br>
-        <button class="main_button" onclick="change_div( this, '#div_intro_ready', validate_form('.form_dems'), prune );">Next</button>
-    </div>
-
-    <div id="div_intro_ready" style="width: 70%;" class="intro">
-        <br>Now comes the lie detection simulation task. You will have to pretend to be somebody else, while we will try to identify you based on the details (forename, surname) that you gave in the beginning. For the sake of this experiment, imagine
-        yourself in a situation where you would really want to hide your true identity (e.g. from the authorities, after having commited a crime), and please perform the following task accordingly.
-        <br>
-        <br> It may happen that your true details that you gave will not appear in the task. That will simply mean that you are in the "innocent" condition, simulating an innocent suspect. The task will be just the same anyway.
-        <br>
-        <br> Click on <b>Start</b> to begin the lie test simulation.
-        <br>
-        <br>
-        <br>
-        <button class="intro_button" onclick="change_div( this, '#instructions', true, darken_bg )">Start</button>
-    </div>
-
-
 
     <div id="instructions" class="main_instr">
         <span style="position: relative;left: 42%;transform: translateX(-50%)"><b>Task instructions</b></span>
@@ -369,18 +327,11 @@
     </div>
 
     <div id="div_target_check" style="padding-bottom: 30%; width: 80%; height: 15%;" class="maintext">
-        <b>To make sure you correctly memorized the target details, please fill them in.</b>
+        <b>To make sure you correctly memorized the target detail please write it below.</b>
         <br>
-        <br>Target forename:
-        <select id="tcheck_forenames" style="text-transform: capitalize;">
+        <select id="tcheck" style="text-transform: capitalize;">
             <option value="">-</option>
         </select>
-        <br>
-        <br>Target surname:
-        <select id="tcheck_surnames" style="text-transform: capitalize;">
-            <option value="">-</option>
-        </select>
-        <br>
         <br>
         <br>
         <button class="main_button" onclick="change_div(this, '#div_cit_blockstart', target_check(), nextblock);">Next</button>
@@ -410,10 +361,7 @@
 
     <div id="div_outro_end" style="width: 85%;font-size:2.0vw;" class="intro">
         <br>
-        <b>The End</b>
-        <br>
-        <br> You can let the experiment leader know that you finished. Please do not close anything!
-        <br>
+        <br><br> This is the end of the test. You can let the test administrator know that you finished. Please do not close anything!
         <br>
         <br>
         <button style="background-color:red;position:absolute;left:100%;right:100%;" onclick="end_save();"> X </button>

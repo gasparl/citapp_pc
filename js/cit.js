@@ -28,25 +28,24 @@ function set_block_texts() {
             "</b>. "
         ];
     }
+    block_num_info = {
+        4: "It will take about 3-5 minutes",
+        5: "There will be two blocks. Each block will take about 3-5 minutes.",
+        6: "There will be three blocks. Each block will take about 3-5 minutes."
+    };
     block_texts[0] = "";
     block_texts[1] =
-        'There will be three short practice rounds. In this first practice round, we just want to see that you clearly understand the task. Therefore, you will have a lot of time to choose each of your responses, just make sure you choose accurately. Here, all items from the two categories (forenames, surnames) will be mixed together randomly. <b>You must respond to each item correctly.</b> If you choose an incorrect response (or not give response for over 10 seconds), you will have to repeat this practice round.<br><br>Remember: press "<b>E</b>" or "<b>I</b>" keys depending on the category to which the given item belongs. If needed, click <b>show full instructions again</b> to reread the details.<br><br><p id="chances_id"></p><b>Please make sure you clearly understand the instructions before continuing with the task!</b>';
+        'There will be three short practice rounds. In this first practice round, we just want to see that you clearly understand the task. Therefore, you will have a lot of time to choose each of your responses, just make sure you choose accurately. <b>You must respond to each item correctly.</b> If you choose an incorrect response (or not give response for over 10 seconds), you will have to repeat this practice round.<br><br>Remember: press "<b>E</b>" or "<b>I</b>" keys depending on the category to which the given item belongs. If needed, click <b>show full instructions again</b> to reread the details.<br><br><b>Please make sure you clearly understand the instructions before continuing with the task!</b>';
     block_texts[2] =
-        '<span id="feedback_id2">Great, you passed the first practice round. In this second practice round, there will be a shorter deadline for the responses, but a certain rate of errors is allowed. (Items will be first forename names, then surname names, then again forenames, etc.) Try to be as accurate and as fast as possible.<br><br></span><p id="chances_id"></p>';
+        '<span id="feedback_id2">Great, you passed the first practice round. In this second practice round, there will be a shorter deadline for the responses, but a certain rate of errors is allowed. Try to be as accurate and as fast as possible.<br><br></p>';
     block_texts[3] =
-        "<span id='feedback_id3'>You passed the second practice round. This will be the third and last practice round. The response deadline is again shorter.<br><br>The task is designed to be difficult, so don't be surprised if you make mistakes, but do your best: <b>try to be as accurate and as fast as possible</b>.<br></span><p id='chances_id'></p>";
+        "<span id='feedback_id3'>You passed the second practice round. This will be the third and last practice round. The response deadline is again shorter.<br><br><b>Try to be as accurate and as fast as possible</b>.<br></span><p id='chances_id'></p>";
     block_texts[4] =
-        "Good job. Now begins the actual test. The task is the same. There will be two blocks, with a pause in-between. This first block tests the category of " +
-        stim_base[0][0].cat +
-        ", so you will be shown only the related items. " +
-        target_reminder[0] +
-        '<br><br><b>Again: try to be as accurate and as fast as possible.</b>';
+        "Good job. Now begins the actual test. The task is the same. " +  block_num_info[num_of_blocks] + '<br><br><b>Again: try to be as accurate and as fast as possible.</b>';
     block_texts[5] =
-        "The first block is now done. The second block will test the category of " +
-        stim_base[1][0].cat +
-        ". " +
-        target_reminder[1] +
-        "The task is otherwise the same. <b>Again: try to be as accurate and as fast as possible.</b>";
+        "The first block is now done. You may continue with the second block when you are ready. <b>Again: try to be as accurate and as fast as possible.</b>";
+    block_texts[6] =
+        "The second block is now done. You may continue with the third and last block when you are ready. <b>Again: try to be as accurate and as fast as possible.</b>";
 }
 
 function first_practice_stim() {
@@ -526,7 +525,6 @@ function next_trial() {
         text_to_show = trial_stim.word.toUpperCase();
         isi();
     } else {
-        basic_times.blocks += "\nBlock " + blocknum + " end " + Date();
         if (blocknum > 3 || practice_eval()) {
             if (blocknum == 4 || blocknum == 5) {
                 main_eval();
@@ -656,7 +654,6 @@ function nextblock() {
         rt_data_dict = {};
         show_blockstart();
     } else {
-        basic_times.blocks += "\nBlock " + blocknum + " end_last " + Date();
         ins = "";
         $("#div_cit_main").hide();
         lighten_bg();
@@ -679,7 +676,6 @@ function show_blockstart() {
 }
 
 function runblock() {
-    basic_times.blocks += "\nBlock " + blocknum + " start " + Date();
     $("*").css("cursor", "none");
     $("#div_cit_blockstart").hide();
     $("#start_text").show();
