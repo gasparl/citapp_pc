@@ -34,7 +34,7 @@ function set_block_texts() {
     block_texts[2] =
         '<span id="feedback_id2">Great, you passed the first practice round. In this second practice round, there will be a shorter deadline for the responses, but a certain rate of errors is allowed. Try to be as accurate and as fast as possible.<br><br></p>';
     block_texts[3] =
-        "<span id='feedback_id3'>You passed the second practice round. This will be the third and last practice round. The response deadline is again shorter.<br><br><b>Try to be as accurate and as fast as possible</b>.<br></span><p id='chances_id'></p>";
+        "<span id='feedback_id3'>You passed the second practice round. This will be the third and last practice round. The response deadline is again shorter. (Also, the reminder texts will not be displayed anymore.)<br><br><b>Try to be as accurate and as fast as possible</b>.<br></p>";
     block_texts[4] =
         "Good job. Now begins the actual test. The task is the same. " +  block_num_info[num_of_blocks] + '<br><br><b>Again: try to be as accurate and as fast as possible.</b>';
     block_texts[5] =
@@ -48,7 +48,7 @@ function first_practice_stim() {
     if (condition != 0 && condition != 3) {
         prac_teststim = prac_teststim.concat(inducersGen());
     }
-    basestims = shuffle(prac_teststim);
+    var basestims = shuffle(prac_teststim);
     teststim = [];
     var stim_words = [];
     for (var i = 0; i < 2; i++) {
@@ -65,6 +65,7 @@ function first_practice_stim() {
             }
         });
     }
+    teststim = shuffle(teststim);
 }
 
 function getPracticeTestStimuli_simple() {
@@ -314,7 +315,7 @@ listen = false;
 listn_end = false;
 var block_texts;
 var all_main_rts;
-function cit_initials() {    
+function cit_initials() {
     cit_data = "subject_id\tcit_version\tblock_number\ttrial_number\tstimulus_shown\tcategory\tstim_type\tresponse_key\trt\tincorrect\ttoo_slow\tdate_in_ms\n";
     correct_key = "none";
     blocknum = 1;
@@ -377,39 +378,39 @@ function set_cit_conditions() {
         // standard CIT
         div_after_instr = "#div_target_check";
         $("#task_instruction").html(
-            'Pressing the "I" key means "YES, I recognize this item as a relevant". Pressing the "E" key means "NO, I do not recognize this item as relevant". <br> You will see words (forenames, surnames) appearing in the middle of the screen. You have to recognize and say YES to the following target details: <b>' +
+            'Pressing the "I" key means "YES, I recognize this item as a relevant". Pressing the "E" key means "NO, I do not recognize this item as relevant". <br> You will see words appearing in the middle of the screen. You have to recognize and say YES to the following target details: <b>' +
             the_targets.join("</b>, <b>").toUpperCase() +
             "</b><br>You have to say NO to all other details. Remember: you are denying that you recognize any of the other details as relevant to you, so you have to say NO to all of them.<br><br>"
         );
         $("#label_top").html(s_captions[0]);
-        $("#label_right").html(s_captions[1]);
-        $("#label_left").html(s_captions[2]);
+        $("#label_left").html(s_captions[1]);
+        $("#label_right").html(s_captions[2]);
         practice_stim = getPracticeTestStimuli_simple;
         main_stim = getAllTestStimuli_simple;
     } else if (condition == 1 || condition == 4) {
         // induced & target
         div_after_instr = "#div_target_check";
         $("#task_instruction").html(
-            'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words (forenames, surnames) appearing in the middle of the screen. You have to say FAMILIAR to the following target details: <b>' +
+            'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words appearing in the middle of the screen. You have to say FAMILIAR to the following target details: <b>' +
             the_targets.join("</b>, <b>").toUpperCase() +
-            "</b><br>You have to say UNFAMILIAR to all other actual details (other forenames, surnames). Remember: you are denying that you recognize any of these other details as relevant to you, so you have to say UNFAMILIAR to all of them. " +
+            "</b><br>You have to say UNFAMILIAR to all other actual details. Remember: you are denying that you recognize any of these other details as relevant to you, so you have to say UNFAMILIAR to all of them. " +
             inducers_instructions
         );
         $("#label_top").html(e_captions[0]);
-        $("#label_right").html(e_captions[1]);
-        $("#label_left").html(e_captions[2]);
+        $("#label_left").html(e_captions[1]);
+        $("#label_right").html(e_captions[2]);
         practice_stim = getPracticeTestStimuli_induced;
         main_stim = getAllTestStimuli_induced;
     } else if (condition == 2 || condition == 5) {
         // induced - nontarget
         div_after_instr = "#div_cit_blockstart";
         $("#task_instruction").html(
-            'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words (forenames, surnames) appearing in the middle of the screen. You have to say UNFAMILIAR to all these details. Remember: you are denying that you recognize any of these details as relevant to you, so you have to say UNFAMILIAR to all of them. ' +
+            'Pressing the "I" key means that the displayed item is "FAMILIAR" to you. Pressing the "E" key means that the item is "UNFAMILIAR" to you. You will see words appearing in the middle of the screen. You have to say UNFAMILIAR to all these details. Remember: you are denying that you recognize any of these details as relevant to you, so you have to say UNFAMILIAR to all of them. ' +
             inducers_instructions
         );
         $("#label_top").html(e_captions[0]);
-        $("#label_right").html(e_captions[1]);
-        $("#label_left").html(e_captions[2]);
+        $("#label_left").html(e_captions[1]);
+        $("#label_right").html(e_captions[2]);
         practice_stim = getPracticeTestStimuli_induced;
         main_stim = getAllTestStimuli_induced;
     }
@@ -453,7 +454,7 @@ function post_resp_hold() {
 it_type_feed_dict = {
     selfrefitem: "familiarity-related items",
     otherrefitem: "unfamiliarity-related items",
-    main_item: "actual details (forenames or surnames)",
+    main_item: "actual details",
     target: "target items"
 };
 //evaluate practice performance plus give feedback
@@ -512,7 +513,7 @@ function main_eval() {
             );
         }
     }
-    if (verylow == true && blocknum > 3) {
+    if (verylow == true && blocknum > 3 && blocknum < num_of_blocks) {
         var feedback_text =
             "Warning: you had very low accuracy in this last block to the following item type(s):" +
             types_failed.join(",") +
@@ -536,7 +537,7 @@ function next_trial() {
         isi();
     } else {
         if (blocknum > 3 || practice_eval()) {
-            if (blocknum == 4 || blocknum == 5) {
+            if (blocknum > 3) {
                 main_eval();
             }
             blocknum++;
@@ -658,7 +659,6 @@ function nextblock() {
         rt_data_dict = {};
         show_blockstart();
     } else {
-        ins = "";
         $("#div_cit_main").hide();
         lighten_bg();
         $("#div_outro_end").show();

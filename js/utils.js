@@ -100,16 +100,15 @@ var s_captions, e_captions;
 
 function starter() {
     chrome_check("Last warning! Your browser seems to be " + browser_name + ", and not Chrome. The application may fail or prove suboptimal in browsers other than Google Chrome.");
-    condition = 0; // always standard CIT guilty
-    cat_order = $("#name_order_id").val();
+    experiment_title = $("#exp_title_id").val();
     subj_id = $("#subj_num_id").val();
-    condition = $('input[name=cit_version]:checked').val();
+    condition = parseInt($('input[name=cit_version]:checked').val());
     if (condition == 0) {
         cit_version = "standard";
     } else {
         cit_version = "enhanced";
     }
-    num_of_blocks = $('input[name=num_of_blcks]:checked').val() + 3;
+    num_of_blocks = parseInt($('input[name=num_of_blcks]:checked').val()) + 3;
     inducer_items = [
         $("#i_1_id").val(),
         $("#i_2_id").val(),
@@ -132,6 +131,7 @@ function starter() {
         $("#e_right_id").val()
     ];
     cit_initials();
+    create_stim_base();
 }
 //background changes
 function darken_bg() {
@@ -262,11 +262,6 @@ function evulat_dcit(d_cit) {
 var f_name;
 function end_save() {
     selectable_bg();
-    all_main_rts = {
-        "probs": [732,645,653,732,545,432,545,653,757,519],
-        "irrs": [433,633,354,433,633,394,433,333,454,611]
-    };
-    cit_data = "asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg ";
     f_name =
         experiment_title +
         "_" +
@@ -287,7 +282,7 @@ function end_save() {
     $("#end_summary_id").html(to_display);
     $("#div_outro_end").hide();
     $("#div_end_screen").show();
-    copy_to_clip();
+    copy_to_clip();    
 }
 
 function dl_as_file(filename_to_dl, data_to_dl) {

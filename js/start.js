@@ -1,8 +1,8 @@
-var experiment_title = "CIT_Mobile_pc";
+var experiment_title;
 // set global cit vars
 var tooslow_delay = 400;
 var false_delay = 400;
-var isi_delay_minmax = [300, 600];
+var isi_delay_minmax = [250, 750];
 var all_conditions = [0, 1, 2, 3, 4, 5]; // 0/3: RF-CIT, 1/4: ID-EAST CIT, 2/5: PRIMED-CIT (where 0,1,2 guilty 3,4,5 innocent)
 var condition;
 var subj_id;
