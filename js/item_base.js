@@ -14,7 +14,7 @@ function create_stim_base() {
     words_array.forEach(function(word, num) {
         stim_base_temp.push({
             word: word,
-            cat: categories
+            cat: "main_item"
         });
         if (0 === num) {
             stim_base_temp[num].type = "probe";

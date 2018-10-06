@@ -357,3 +357,7 @@ table {
     text-indent: -3em;
     display: block;
 }
+button {
+    -webkit-user-select: none;
+    user-select: none;
+}

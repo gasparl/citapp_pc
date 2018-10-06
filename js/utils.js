@@ -95,7 +95,7 @@ function check_selected() {
     }
     return is_valid;
 }
-var inducer_items, subj_id;
+var inducer_items, subj_id, cit_version;
 var s_captions, e_captions;
 
 function starter() {
@@ -104,6 +104,11 @@ function starter() {
     cat_order = $("#name_order_id").val();
     subj_id = $("#subj_num_id").val();
     condition = $('input[name=cit_version]:checked').val();
+    if (condition == 0) {
+        cit_version = "standard";
+    } else {
+        cit_version = "enhanced";
+    }
     num_of_blocks = $('input[name=num_of_blcks]:checked').val() + 3;
     inducer_items = [
         $("#i_1_id").val(),
@@ -126,6 +131,7 @@ function starter() {
         $("#e_left_id").val(),
         $("#e_right_id").val()
     ];
+    cit_initials();
 }
 //background changes
 function darken_bg() {
@@ -238,28 +244,35 @@ function range(start, end) {
 }
 
 function evulat_dcit(d_cit) {
-    if (dcit > 0.4) {
-        outcome = "; which may be interpreted as a strong indication of guilt.";
-    } else if (dcit > 0.3) {
-        outcome = "; which may be interpreted as a fair indication of guilt.";
-    } else if (dcit > 0.1) {
-        outcome = "; which may be interpreted as a weak indication of guilt.";
-    } else if (dcit > 0) {
-        outcome = "; which may be interpreted as indeterminate.";
-    } else if (dcit > -0.1) {
-        outcome = "; which may be interpreted as a weak indication of innocence.";
+    if (d_cit > 0.4) {
+        return "; which may be interpreted as a strong indication of guilt.";
+    } else if (d_cit > 0.3) {
+        return "; which may be interpreted as a fair indication of guilt.";
+    } else if (d_cit > 0.1) {
+        return "; which may be interpreted as a weak indication of guilt.";
+    } else if (d_cit > 0) {
+        return "; which may be interpreted as indeterminate.";
+    } else if (d_cit > -0.1) {
+        return "; which may be interpreted as a weak indication of innocence.";
     } else {
-        outcome = "; which may be interpreted as a fair indication of innocence.";
+        return "; which may be interpreted as a fair indication of innocence.";
     }
 }
 // end task
+var f_name;
 function end_save() {
+    selectable_bg();
+    all_main_rts = {
+        "probs": [732,645,653,732,545,432,545,653,757,519],
+        "irrs": [433,633,354,433,633,394,433,333,454,611]
+    };
+    cit_data = "asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg asdf asdfsad asdf asdfrge 234re reg ";
     f_name =
         experiment_title +
         "_" +
         subj_id +
         "_" +
-        cond_text +
+        cit_version +
         "_" +
         (num_of_blocks - 3) +
         "block_" +
@@ -267,39 +280,14 @@ function end_save() {
         ".txt";
     var dcit = (mean(all_main_rts.probs) - mean(all_main_rts.irrs)) / sd(all_main_rts.irrs);
     var outcome = evulat_dcit(dcit);
-    outcome += " The actual difference between probe and irrelevant RT means is ~" + Math.round(mean(all_main_rts.probs) - mean(all_main_rts.irrs)) + " ms)";
-    var cond_text;
-    if (condition == 0) {
-        cond_text = "standard";
-    } else {
-        cond_text = "enhanced";
-    }
-    to_display = "The individual effect size is<i>d</i><sub>CIT</sub> = " + (Math.ceil(dcit * 1000) / 1000).toFixed(3) + outcome + "\n\nFile name: " + f_name + "\n\nFull data:\n";
-    console.log(to_display);
-
+    outcome += " (The raw difference between probe and irrelevant RT means is about " + Math.round(mean(all_main_rts.probs) - mean(all_main_rts.irrs)) + " ms.)";
+    to_display = "This <i>d</i><sub>CIT</sub> for the current test is " + (Math.ceil(dcit * 100) / 100).toFixed(2) + outcome;
+    console.log(to_display + "\n\nFile name: " + f_name  + "\n\nFull data:\n");
     console.log(cit_data);
-    $("#data_display").text(cit_data);
+    $("#end_summary_id").html(to_display);
     $("#div_outro_end").hide();
-    $("#data_display").show();
-    element = $('<textarea>').appendTo('body').val(cit_data).select();
-    document.execCommand("Copy");
-    element.remove();
-    dl_as_file(f_name, cit_data);
-    $.post(
-        "php/store_finish.php", {
-            filename_post: f_name,
-            results_post: cit_data,
-            sid_post: subj_id,
-            exp_title_post: experiment_title,
-            cond_post: condition,
-            dems_post: dems
-        },
-        function(resp) {
-            if (resp.startsWith("Fail")) {
-                alert(resp);
-            }
-        }
-    );
+    $("#div_end_screen").show();
+    copy_to_clip();
 }
 
 function dl_as_file(filename_to_dl, data_to_dl) {
@@ -313,7 +301,11 @@ function dl_as_file(filename_to_dl, data_to_dl) {
     elemx.click();
     document.body.removeChild(elemx);
 }
-
+function copy_to_clip() {
+    element = $('<textarea>').appendTo('body').val(cit_data).select();
+    document.execCommand("Copy");
+    element.remove();
+}
 function neat_date() {
     var m = new Date();
     return m.getFullYear() + "" +

@@ -2,12 +2,7 @@
 
 // texts to display before blocks
 
-var block_texts = [];
-var first_categ;
-var all_main_rts = {
-    "probs": [],
-    "irrs": []
-};
+
 
 function set_block_texts() {
     var change_hint;
@@ -308,20 +303,35 @@ var teststim,
     trial_stim,
     keys_code,
     can_start;
-var practice_repeated = {
-    block1: 0,
-    block2: 0,
-    block3: 0
-};
-var cit_data = "subject_id\tcondition\tcateg_order\tblock_number\ttrial_number\tstimulus_shown\tcategory\tstim_type\tresponse_key\trt_start\trt_end\tincorrect\ttoo_slow\tisi\tdate_in_ms\n";
-var correct_key = "none";
-var blocknum = 1;
-var rt_start = 99999;
-var rt_end = 99999;
-var start = 0;
+var practice_repeated;
+var cit_data;
+var correct_key;
+var blocknum;
+var rt_start;
+var rt_end;
+var start;
 listen = false;
 listn_end = false;
-
+var block_texts;
+var all_main_rts;
+function cit_initials() {    
+    cit_data = "subject_id\tcit_version\tblock_number\ttrial_number\tstimulus_shown\tcategory\tstim_type\tresponse_key\trt\tincorrect\ttoo_slow\tdate_in_ms\n";
+    correct_key = "none";
+    blocknum = 1;
+    rt_start = 99999;
+    rt_end = 99999;
+    start = 0;
+    practice_repeated = {
+        block1: 0,
+        block2: 0,
+        block3: 0
+    };
+    block_texts = [];
+    all_main_rts = {
+        "probs": [],
+        "irrs": []
+    };
+}
 // too slow
 function flash_too_slow() {
     $("#tooslow").show();
@@ -585,9 +595,7 @@ function add_response() {
     cit_data +=
         subj_id +
         "\t" +
-        condition +
-        "\t" +
-        cat_order +
+        cit_version +
         "\t" +
         blocknum +
         "\t" +
@@ -603,13 +611,9 @@ function add_response() {
         "\t" +
         rt_start +
         "\t" +
-        rt_end +
-        "\t" +
         incorrect +
         "\t" +
         tooslow +
-        "\t" +
-        (isi_delay + isi_delay_minmax[0]) +
         "\t" +
         String(new Date().getTime()) +
         "\n";
@@ -657,7 +661,6 @@ function nextblock() {
         ins = "";
         $("#div_cit_main").hide();
         lighten_bg();
-        selectable_bg();
         $("#div_outro_end").show();
     }
 }
