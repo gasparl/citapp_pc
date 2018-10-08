@@ -160,7 +160,7 @@
 
                 <p>
                     This application needs no installation whatsoever, it can and should be run in a <a class="links" href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> browser (v25 or above). (The main <i>CITapp.html</i> file can
-                    be for example simple dragged into a new window or tab of the open browser.) There are no further dependencies or system requirements. The entire application works offine: no internet connection is needed.
+                    be for example simply dragged into a new window or tab of the open browser.) There are no further dependencies or system requirements. The entire application works offine: no internet connection is needed.
                 </p>
 
                 <p class="subtitle" id="sect_intro">Introduction</p>
@@ -175,12 +175,11 @@
 
                 <p class="subtitle" id="sect_cit_versions">The CIT versions</p>
 
-                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>): <i>standard</i> and <i>enhanced</i>.
-                    Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is a stolen suitcase, and the irrelevant and targets are other suitcases).</b></p>The precise design of the task is described by <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013"
-                        target="_blank">Lukács et al. (2017)</a>.
+                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>; <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>): <i>standard</i> and <i>enhanced</i>.
+                    Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is the brand of a stolen car, and the irrelevant and targets are other brands).</b></p>
                 <p>
                     <u>Standard RT-CIT</u>: it has one probe, one target, and four irrelevant items. The target item will require a different response in the task, otherwise it is the same as an irrelevant item. A person who knows the relevance of the
-                    probe (e.g., because he stole the suitcase) will tend to make slower responses to it than to the irrelevant items.
+                    probe (e.g., because this person stole the car whose details are used as probes in the test) will tend to make slower responses to it than to the irrelevant items.
                     <br>
                     <span class="expandable" id="expand1" onclick="$(this).hide();$('#expand_content1').show();$('#hide1').show();">Expand.</span>
                     <span class="expandable" id="hide1" onclick="$(this).hide();$('#expand_content1').hide();$('#expand1').show();" style="display:none;">(Hide.)<br></span>
@@ -215,7 +214,7 @@
                     <p class="subtitle" id="sect_numofblocks">Task design</p>
 
                     <p>
-                        The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (e.g., <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>). There is no data to
+                        The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>). There is no data to
                         show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than three would probably
                         not serve much additional information even on the individual level.<br>
                         <span class="expandable" id="expand3" onclick="$(this).hide();$('#expand_content3').show();$('#hide3').show();">Expand.</span>
@@ -240,7 +239,7 @@
                     <p>
                         At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may
                         be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the
-                        clipboard content is lost.) The data contains all responses (one per row) from the test, with all relevant information, corresponding to the self-explanatory titles in the first row.<br>
+                        clipboard content is lost.) The data is also accessible through Chrome's developement console, in which it is displayed automatically after the end of the test (and contained in the <i>cit_data</i> variable). This data contains all responses (one per row) from the test, with all relevant information, corresponding to the titles in the first row.<br>
                         <span class="expandable" id="expand4" onclick="$(this).hide();$('#expand_content4').show();$('#hide4').show();">Expand.</span>
                         <span class="expandable" id="hide4" onclick="$(this).hide();$('#expand_content4').hide();$('#expand4').show();" style="display:none;">(Hide.)<br></span>
                         <span class="expanded" id="expand_content4">
