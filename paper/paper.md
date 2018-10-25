@@ -22,11 +22,11 @@ bibliography: paper.bib
 
 for now for research and replications; later possibly a widespread method for appropriate investigative and other authorities all over the world. [easily used by … all over the world] …. [At the same time, this is the very first publicly available application for a valid, scientifically proven lie detection method.
 
-By simply uploading it on any server, this application can also be made available online, where it can then be easily accessed anytime, from anywhere. (One online version is available through http://dx.doi.org/10.17605/OSF.IO/H3PEV) Once loaded into the browser, it may be again be used offline as well.
+By simply uploading it on any server, this application can also be made available online, where it can then be easily accessed anytime, from anywhere. (One online version is available through http://dx.doi.org/10.17605/OSF.IO/H3PEV.) Once loaded into the browser, it may again be used offline as well.
 
 
 # Acknowledgments
 
-Thanks to Bennett Kleinberg for inspiration and suggestions.
+Thanks to Bennett Kleinberg for inspiration.
 
 # References
