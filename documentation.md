@@ -46,29 +46,29 @@ Currently the settings (apart from those on the main page) involve only the poss
 
 At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the clipboard content is lost.) The data contains all responses (one per row) from the test, with all relevant information, corresponding to the self-explanatory titles in the first row.
 
-**subject\_id** _: The subject identification text as given on the starting page._
+_**subject\_id**: The subject identification text as given on the starting page._
 
-**cit\_version** _: The CIT version as selected on the starting page._
+_**cit\_version**: The CIT version as selected on the starting page._
 
-**block\_number** _: The number of the block._
+_**block\_number**: The number of the block._
 
-**trial\_number** _: The number of the trial._
+_**trial\_number**: The number of the trial._
 
-**stimulus\_shown** _: The specific text of the stimulus that was displayed on the screen._
+_**stimulus\_shown**: The specific text of the stimulus that was displayed on the screen._
 
-**category** _: Either "main\_item" (probe, irrelevant, or target), or "inducer" (familiar-referring or unfamiliar-referring)._
+_**category**: Either "main\_item" (probe, irrelevant, or target), or "inducer" (familiar-referring or unfamiliar-referring)._
 
-**stim\_type** _: More specific type: probe, irrelevant, target, familiar-referring inducer, or unfamiliar-referring inducer._
+_**stim\_type**: More specific type: probe, irrelevant, target, familiar-referring inducer, or unfamiliar-referring inducer._
 
-**response\_key** _: The response key that was used ("e" or "i"), regardless whether it was correct or not._
+_**response\_key**: The response key that was used ("e" or "i"), regardless whether it was correct or not._
 
-**rt** _: The response time (from the start of the presentation of the stimulus until the pressing of the response key); in ms._
+_**rt**: The response time (from the start of the presentation of the stimulus until the pressing of the response key); in ms._
 
-**incorrect** _: Whether the response was correct: 1 for incorrect, 0 for correct._
+_**incorrect**: Whether the response was correct: 1 for incorrect, 0 for correct._
 
-**too\_slow** _: Whether the response was too slow: 1 for too slow, 0 for not too slow._
+_**too\_slow**: Whether the response was too slow: 1 for too slow, 0 for not too slow._
 
-**date\_in\_ms** _: The number of milliseconds elapsed since January 1, 1970, 00:00:00 UTC. (This documents the exact time and duration of the experiment, allows to calculate the length of pauses taken between the blocks, etc.)_
+_**date\_in\_ms**: The number of milliseconds elapsed since January 1, 1970, 00:00:00 UTC. (This documents the exact time and duration of the experiment, allows to calculate the length of pauses taken between the blocks, etc.)_
 
 **Evaluation**
 
