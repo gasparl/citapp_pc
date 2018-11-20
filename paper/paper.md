@@ -31,6 +31,6 @@ The basic framework of this application was first used in a recent online study;
 
 # Acknowledgments
 
-Thanks to Bennett Kleinberg for inspiration.
+Gáspár Lukács is a recipient of a DOC Fellowship of the Austrian Academy of Sciences at the Institute for Basic Psychological Research at the University of Vienna. Thanks to Bennett Kleinberg for inspiration.
 
 # References
