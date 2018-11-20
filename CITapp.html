@@ -10,6 +10,7 @@
     <script src="./js/utils.js"></script>
     <script src="./js/cit.js"></script>
     <script src="./js/item_base.js"></script>
+    <script src="./js/keypress_sim.js"></script>
     <link href="./css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -152,8 +153,9 @@
 
                 Below you find the documentation of the present version (v1.0.0) of the Concealed Information Test application, by sections <a class="links" href="#sect_reqs">Requirements</a>, <a class="links" href="#sect_intro">Introduction</a>,
                 <a class="links" href="#sect_cit_versions">The CIT versions</a>, <a class="links" href="#sect_numofblocks">Task design</a>,
-                <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_results">Results</a>, <a class="links" href="#sect_eval">Evaluation</a>, <a class="links" href="#sect_plans">Planned features</a>, <a class="links" href="#sect_refs">References</a>,
-                <a class="links" href="#sect_contanct">Contact</a>.
+                <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_results">Results</a>, <a class="links" href="#sect_eval">Evaluation</a>, <a class="links" href="#sect_testing">Testing and example usage</a>,
+                <a class="links" href="#sect_plans">Planned features</a>, <a class="links" href="#sect_refs">References</a>,
+                <a class="links" href="#sect_contact">Contact</a>.
 
                 <br><br>
                 <p class="subtitle" id="sect_reqs">Requirements</p>
@@ -175,8 +177,8 @@
 
                 <p class="subtitle" id="sect_cit_versions">The CIT versions</p>
 
-                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>; <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>): <i>standard</i> and <i>enhanced</i>.
-                    Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is the brand of a stolen car, and the irrelevant and targets are other brands).</b></p>
+                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>; <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013"
+                        target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>): <i>standard</i> and <i>enhanced</i>. Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is the brand of a stolen car, and the irrelevant and targets are other brands).</b></p>
                 <p>
                     <u>Standard RT-CIT</u>: it has one probe, one target, and four irrelevant items. The target item will require a different response in the task, otherwise it is the same as an irrelevant item. A person who knows the relevance of the
                     probe (e.g., because this person stole the car whose details are used as probes in the test) will tend to make slower responses to it than to the irrelevant items.
@@ -214,9 +216,9 @@
                     <p class="subtitle" id="sect_numofblocks">Task design</p>
 
                     <p>
-                        The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>). There is no data to
-                        show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than three would probably
-                        not serve much additional information even on the individual level.<br>
+                        The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>).
+                        There is no data to show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than
+                        three would probably not serve much additional information even on the individual level.<br>
                         <span class="expandable" id="expand3" onclick="$(this).hide();$('#expand_content3').show();$('#hide3').show();">Expand.</span>
                         <span class="expandable" id="hide3" onclick="$(this).hide();$('#expand_content3').hide();$('#expand3').show();" style="display:none;">(Hide.)<br></span>
                         <span class="expanded" id="expand_content3">
@@ -239,7 +241,8 @@
                     <p>
                         At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may
                         be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the
-                        clipboard content is lost.) The data is also accessible through Chrome's developement console, in which it is displayed automatically after the end of the test (and contained in the <i>cit_data</i> variable). This data contains all responses (one per row) from the test, with all relevant information, corresponding to the titles in the first row.<br>
+                        clipboard content is lost.) The data is also accessible through Chrome's developement console, in which it is displayed automatically after the end of the test (and contained in the <i>cit_data</i> variable).
+                        This data contains all responses (one per row) from the test, with all relevant information, corresponding to the titles in the first row.<br>
                         <span class="expandable" id="expand4" onclick="$(this).hide();$('#expand_content4').show();$('#hide4').show();">Expand.</span>
                         <span class="expandable" id="hide4" onclick="$(this).hide();$('#expand_content4').hide();$('#expand4').show();" style="display:none;">(Hide.)<br></span>
                         <span class="expanded" id="expand_content4">
@@ -317,7 +320,16 @@
                         <br> (Note that there is no strong indication of innocence: a very fast probe response is no more expected in case of innocence than in case of guilt.)
                     </p>
 
-
+                    <p class="subtitle" id="sect_testing">Testing and example usage</p>
+                    <p>
+                        To experimentally test this application, one may for example enter the personal name (e.g., forename) of a participant as probe, and other, similar names as target and irrelevant items. (These latter items should be controlled for similarity to the extent possible; e.g., number of characters or syllables, word frequency, etc.) In this case, the participant's responses to the probe (own personal name) should be notably slower than the responses to the irrelevants (e.g., around 15-30 ms average difference). Correspondingly, the <i>d</i><sub>CIT</sub> should be relatively high as well (e.g., larger than 0.3). As a control condition, one may enter irrelevant names for all item types, so that the probe, irrelevant, and target items are all in fact irrelevant to the participant. In this case, the responses to the probe should be of similar speed as the responses to the irrelevants (since, again, the probe is not relevant to the participant and is not recognized as any different from the rest of the items).
+                    </p>
+                    <p>
+                        However, the basic framework of the application can be tested programmatically as well. This is done by a designated testing function that simulates human responses (keypresses) whenever an item in the task is displayed. This simulation can be activated by simply entering the function <i>citapp_testing_on()</i> into the Chrome DevTools Console (F12) anytime. By default, this function gives 100% correct responses in the first practice round (where this is required), and, for the rest of the task, 90% correct and 10% incorrect responses, with artificial response time randomly ranging from 350 to 600. These numbers can be changed by modifying any of the following parameters: <i>apptest_correct_ratio_first</i> (ratio from 0.0 to 1.0), <i>apptest_correct_ratio</i> (ratio from 0.0 to 1.0), <i>apptest_simulated_rt_min</i> (number in ms), and <i>apptest_simulated_rt_max</i> (number in ms). For example, entering <i>apptest_correct_ratio_first = 0.95, apptest_correct_ratio = 0.8, apptest_simulated_rt_min = 200, apptest_simulated_rt_max = 850</i> into the Console will simulate a participant who has 95% correct responses in the first practice round, and, for the rest of the task, 80% correct and 20% incorrect responses, with artificial response time randomly ranging from 200 to 850 (hence, some of them over the response time limit of 800, resulting in "too slow" responses). The simulation automatically proceeds to the next block (within a few seconds) as long as there are blocks left in the task. This can be changed using the parameter <i>move_to_next_block</i> (true or false), e.g. <i>apptest_move_to_next_block = false </i> will disable this, and the user has to press the appropriate button to start each block. By default, all items have the same simulated responses. However, guilt may be simulated using the variable <i>probe_delay</i> (number in ms), that adds a specified delay whenever the response is given to the probe. E.g., <i>apptest_probe_delay = 30</i> will always add 30 ms to the probe response. To stop testing (i.e., stop simulating keypresses), enter citapp_testing_off() anytime.
+                    </p>
+                    <p>
+                        Two output file examples are added under the <i>output_examples</i> folder. One is the result of simulating a guilty suspect, with settings: <i>apptest_correct_ratio_first = 1, apptest_correct_ratio = 0.95, apptest_simulated_rt_min = 500, apptest_simulated_rt_max = 650, apptest_probe_delay = 25</i>. The resulting  <i>d</i><sub>CIT</sub> was 0.58, and the raw difference between probe and irrelevant RT means was 24 ms. The file name is <i>CIT_app_test_sim_guilty_standard_2block_20181120002430.txt</i>. The other is the result of simulating an innocent examinee, with default settings (<i>apptest_correct_ratio_first = 1, apptest_correct_ratio = 0.9, apptest_simulated_rt_min = 350, apptest_simulated_rt_max = 600, apptest_probe_delay = 0</i>). The resulting  <i>d</i><sub>CIT</sub> was 0.03, and the raw difference between probe and irrelevant RT means was 2 ms. The file name is <i>CIT_app_test_sim_innocent_enhanced_3block_20181120003753.txt</i>.
+                    </p>
 
                     <p class="subtitle" id="sect_plans">Planned features</p>
                     - A no-target version will be implemented as soon as the related manuscript is accepted for publication
@@ -336,7 +348,7 @@
 
                     </p>
                     <br>
-                    <p class="subtitle" id="sect_contanct" style="text-decoration:none;">Contact:<span style="font-weight: normal;"> gaspar.lukacs@univie.ac.at</span></p>
+                    <p class="subtitle" id="sect_contact" style="text-decoration:none;">Contact (re. contribution, issues, support):<span style="font-weight: normal;"> gaspar.lukacs@univie.ac.at</span></p>
             </div>
         </div>
     </div>

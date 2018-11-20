@@ -422,6 +422,9 @@ function item_display() {
     } else {
         correct_key = "e";
     }
+    if (app_testing === true) {
+        keypress_sim(); // for testing the framework
+    }
     requestAnimationFrame(function() {
         $("#stimulus").text(text_to_show);
         start = now();
