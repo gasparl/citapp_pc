@@ -34,4 +34,4 @@ advances
   professional setting
   
 ## License
-By contributing, you agree that your contributions will be licensed under its BSD-2-Clause License.
+By contributing to this repository, you agree that your contributions will be licensed under its BSD-2-Clause License.
