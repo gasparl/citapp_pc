@@ -6,7 +6,7 @@ Author: Gáspár Lukács
 
 Contact: gaspar.lukacs@univie.ac.at
 
-Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Issues_, _References_.
+Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
 
 **Requirements**
 
@@ -107,9 +107,9 @@ Two example output files are added under the _output\_examples_ folder. One is t
 - Possibility to store settings locally
 - Graphic (pictorial) stimuli
 
-**Issues**
+**Support**
 
-If you find any issues (bugs, desired features), write an email or open a new issue via https://github.com/gasparl/citapp_pc/issues
+If you have any questions or find any issues (bugs, desired features), write an email or open a new issue via https://github.com/gasparl/citapp_pc/issues
 
 **References**
 
