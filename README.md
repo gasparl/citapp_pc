@@ -10,7 +10,12 @@ Below you find the documentation of the of the Concealed Information Test applic
 
 **Requirements**
 
-This application needs no installation whatsoever, it can and should be run in a _Google Chrome_ browser (v25 or above). (The main _CITapp.html_ file can be for example simple dragged into a new window or tab of the open browser.) There are no further dependencies or system requirements. The entire application works offline: no internet connection is needed.
+This application needs no installation whatsoever, it can and should be run in a _Google Chrome_ browser (v25 or above). There are no further dependencies or system requirements. The entire application works offline: no internet connection is needed.
+
+
+1. https://gasparl.github.io/citapp_pc/CITapp.html
+
+2. download simply, or fork it via git. Then the code can also be modified for specific purposes. Then open in Chrome offline (The main _CITapp.html_ file can be for example simple dragged into a new window or tab of the open browser.). or uppload to own server to use online.
 
 **Introduction**
 
