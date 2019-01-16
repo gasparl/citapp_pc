@@ -22,7 +22,9 @@
         <ul id="nav_menu" style="font-variant: small-caps;font-size: 1.6vw;">
             <li class="menu_list" id="cit_tab_nav" onclick="change_menu('cit_tab')" style="color: #000;background-color: #ccc;font-weight: bold;"><a>CIT-start</a></li>
             <li class="menu_list" id="settings_tab_nav" onclick="change_menu('settings_tab')"><a>Settings</a></li>
-            <li class="menu_list" style="float: right;" id="about_tab_nav" onclick="change_menu('about_tab')"><a>About</a></li>
+            <li class="menu_list" id="demo_tab_nav" onclick="change_menu('demo_tab')"><a>Demo</a></li>
+            <li class="menu_version" style="float: right;"><a>v1.0.1</a></li>
+            <!-- <li class="menu_list" style="float: right;" id="about_tab_nav" onclick="change_menu('about_tab')"><a>About</a></li> -->
         </ul>
         <div style="padding: 3%;overflow: auto;height:78%;">
             <div id="cit_tab">
@@ -142,216 +144,31 @@
                     </span>
 
                     </div>
-
                 </div>
 
+            </div>
 
+
+            <div id="demo_tab" style="display: none;">
+                <p>
+                    For demonstration's sake, take a situation in which you want to reveal whether a person is aware of a certain date. For example, someone is suspected to be concealing the knowledge of an upcoming terrorist attack on May 9. In this case, five different,
+                    additional dates should be chosen randomly. For example, June 14, December 5, August 25, February 12, and March 29. From among these, one should be chosen randomly as target, for example, August 25. These should be filled in accordingly
+                    on the starting page. Probe: May 9, Target: August 25, and the remaining four dates as Irrelevants. The Experiment title may be "detect_relevant_date". The Subject ID could be "suspect_01".
+                </p>
+                <p>
+                    All these data can be filled in automatically for a demonstration using the following button:
+                    <button class="intro_button" style="position: relative;padding: 0.5vw 0.5vw;" onclick="fill_up_demo()">Autofill</button>
+                </p>
+                <p>
+                    For the detailed mechanism of the task, as well as for how to use it (and test it programmatically), see the <a class="links" href="https://github.com/gasparl/citapp_pc/blob/master/README.md" target="_blank">README</a> document.
+                </p>
 
             </div>
 
-            <div id="about_tab" style="display: none;text-align: justify;line-height: 1.5;">
-
-                Below you find the documentation of the present version (v1.0.0) of the Concealed Information Test application, by sections <a class="links" href="#sect_reqs">Requirements</a>, <a class="links" href="#sect_intro">Introduction</a>,
-                <a class="links" href="#sect_cit_versions">The CIT versions</a>, <a class="links" href="#sect_numofblocks">Task design</a>,
-                <a class="links" href="#sect_settings">Settings</a>, <a class="links" href="#sect_results">Results</a>, <a class="links" href="#sect_eval">Evaluation</a>, <a class="links" href="#sect_testing">Testing and example usage</a>,
-                <a class="links" href="#sect_plans">Planned features</a>, <a class="links" href="#sect_refs">References</a>,
-                <a class="links" href="#sect_contact">Contact</a>.
-
-                <br><br>
-                <p class="subtitle" id="sect_reqs">Requirements</p>
-
-                <p>
-                    This application needs no installation whatsoever, it can and should be run in a <a class="links" href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> browser (v25 or above). (The main <i>CITapp.html</i> file can
-                    be for example simply dragged into a new window or tab of the open browser.) There are no further dependencies or system requirements. The entire application works offline: no internet connection is needed.
-                </p>
-
-                <p class="subtitle" id="sect_intro">Introduction</p>
-
-                <p>
-                    No deception detection method has been scientifically proven to achieve perfect or close to perfect accuracies in discriminating deceptive ("guilty") persons from truth-telling ("innocent") ones, notwithstanding the claims by some commercial services
-                    and products. The most efficient "Concealed Information Test" version in the present application ("enhanced") achieved a remarkably high accuracy in a recent study (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013"
-                        target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>), but even so it can only be said to provide an accuracy of roughly around 90% – under certain conditions – and it still needs further research and replications. Correspondingly,
-                    <b>this application is only for testing and research purposes, and no serious judgments should be based on its results</b>. Furthermore, anyone using it should have at least a basic understanding of how it works – see below.
-
-                </p>
-
-                <p class="subtitle" id="sect_cit_versions">The CIT versions</p>
-
-                <p>This application implements two versions of the reaction time-based Concealed Information Test (RT-CIT; <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank">Seymour et al., 2000</a>; <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013"
-                        target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>): <i>standard</i> and <i>enhanced</i>. Both of these aim to reveal whether or not a certain information detail – the <i>probe</i> – is known to the tested person. <b>The identity of the probe should not be shown to the person taking the test: the starting page must be first completed and submitted by the person who administers the test. The <i>irrelevant</i> and <i>target</i> items must be similar to the probe, and indistinguishable for a person who does not know the relevance of the probe (e.g. the probe is the brand of a stolen car, and the irrelevant and targets are other brands).</b></p>
-                <p>
-                    <u>Standard RT-CIT</u>: it has one probe, one target, and four irrelevant items. The target item will require a different response in the task, otherwise it is the same as an irrelevant item. A person who knows the relevance of the
-                    probe (e.g., because this person stole the car whose details are used as probes in the test) will tend to make slower responses to it than to the irrelevant items.
-                    <br>
-                    <span class="expandable" id="expand1" onclick="$(this).hide();$('#expand_content1').show();$('#hide1').show();">Expand.</span>
-                    <span class="expandable" id="hide1" onclick="$(this).hide();$('#expand_content1').hide();$('#expand1').show();" style="display:none;">(Hide.)<br></span>
-                    <span class="expanded" id="expand_content1">
-                        In the standard RT-CIT, participants classify the presented stimuli as the target or as one of several non-targets by pressing one of two keys. Five non-targets are presented, among which one is the probe, which is an item that only a guilty person would
-                        recognize, and the rest are irrelevants, which are similar to the probe and thus indistinguishable from it for an innocent person. For example, in a murder case where the true murder weapon was a knife, the probe could be the word
-                        “knife,” while irrelevants could be “gun,” “rope,” etc. Assuming that the innocent examinees are not informed about how the murder was committed, they would not know which of the items is the probe. The items are repeatedly shown
-                        in a random sequence, and all of them have to be responded to with the same response keys, except one arbitrary target – a randomly selected, originally also irrelevant item that has to be responded to with the other response key.
-                        Since guilty examinees recognize the probe as the relevant item in respect of the deception detection scenario, it will become unique among the irrelevants and in this respect more similar to the rarely occurring target. Due to
-                        this conflict between instructed response classification of probes as irrelevants on the one hand, and probes’ uniqueness and, thus, greater similarity to the alternative response classification as potential targets on the other
-                        hand, the response to the probe will be generally slower in comparison to the irrelevants, and thus, based on the probe-to-irrelevant RT differences, guilty examinees can be distinguished from innocent examinees.
-                    </span>
-
-                    <p>
-                        <u>Enhanced RT-CIT</u>: in addition to the items in the standard RT-CIT, this has familiarity-related "inducer" items that increase the awareness of the lie detection context, and thereby largely increase the probe-irrelevant difference
-                        (even slower responses to the probe). <br>
-                        <span class="expandable" id="expand2" onclick="$(this).hide();$('#expand_content2').show();$('#hide2').show();">Expand.</span>
-                        <span class="expandable" id="hide2" onclick="$(this).hide();$('#expand_content2').hide();$('#expand2').show();" style="display:none;">(Hide.)<br></span>
-                        <span class="expanded" id="expand_content2">
-                    These inducer items induce a particular semantic context that increases the sensitivity of the method for the deception-related meaning of the probe. In the original study [link], the probes were general autobiographical details (birthday,
-                        favorite color, etc.), and, correspondingly, the inducers were familiarity-related: Inducers referring to the category familiar (e.g., “FAMILIAR,” “MINE”) had to be categorized with the same key as the target and, thus, with the
-                        opposite key than the probe (and the irrelevants), while inducers referring to the category unfamiliar (e.g., “OTHER,” “THEIRS”) had to be categorized with the same key as the probe (and irrelevants). It was assumed that in this
-                        way the inducers draw attention to the semantic meaning of the alternative response choices in view of the deception detection scenario (namely, that guilty examinees are denying their familiarity with the probe), thereby increasing
-                        the response conflict when the probe appears, making the response even slower. Moreover, the increased cognitive load (due to the increased complexity) also requires more attention throughout the task, which likely facilitates
-                        deeper processing of the stimuli. This method robustly increased the CIT accuracy of distinguishing guilty examinees from innocent ones.
-                        </span>
-                    </p>
-                    <!-- <p>
-                        No-target RT-CIT: this method includes no targets, relies only on response associations created by the inducers, and thereby it may be used fairly efficiently even when an innocent person is aware of the probe (e.g., even if a person knows the stolen suitcase, he will not respond to it slower, except if he is guilty). However, this method is much less efficient then the enhanced RT-CIT above, and also needs more research. Expand.
-                    </p> -->
-
-                    <p class="subtitle" id="sect_numofblocks">Task design</p>
-
-                    <p>
-                        The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (<a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank">Lukács, Kleinberg, & Verschuere, 2017</a>).
-                        There is no data to show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than
-                        three would probably not serve much additional information even on the individual level.<br>
-                        <span class="expandable" id="expand3" onclick="$(this).hide();$('#expand_content3').show();$('#hide3').show();">Expand.</span>
-                        <span class="expandable" id="hide3" onclick="$(this).hide();$('#expand_content3').hide();$('#expand3').show();" style="display:none;">(Hide.)<br></span>
-                        <span class="expanded" id="expand_content3">
-                            In each block, each probe, irrelevant, and target is repeated 18 times (hence 18 probe, 72 irrelevant, and 18 target trials). The order of the items is randomized in groups: first, all six items (one probe, four irrelevant, and one target) in the given category are presented in a random order, then the same six items are presented in another random order (but with the restriction that the first item in the next group is never the same as the last item in the previous group).  In the enhanced version, inducers are placed among these items in a random order, but with the restrictions that an inducer trial is never followed by another inducer trial, and each of the nine inducers (three familiarity-referring, six unfamiliarity- referring) precedes each of the three probes, three targets, and 12 irrelevants exactly one time. (Thus 9 × 18 = 162 inducers are presented in the Induced CIT, and 162 out of the 324 other items are preceded by an inducer.)
-                            <br>The main task is preceded by a comprehension check and two practice tasks. The check serves to ensure that the participant fully understands the task. This phase includes all items presented once, including each of the nine possible inducers for the enhanced version. In this phase, participants has plenty of time (10 s) to choose a response – however, each trial requires a correct response. In case of an incorrect response, the phase has to be repeated.
-                            <br>In the following first practice task, the response window is longer (2 s), while the second practice task had the same design as the main task (800 ms response window). Both practice tasks consist of 9-14 trials, containing all possible main items in each, and several random inducer items in case of the enhanced version. In either practice task, in case of too few valid responses, the participants receives a corresponding feedback, and have to repeat the practice task. The requirement is a minimum 60% valid responses (correct key between 150 and 800 ms) for each of the following item types (when the given type exists in the given CIT version): targets; familiarity-referring inducers; unfamiliarity-referring inducers; main items (probes and irrelevants together).
-                        </span>
-                    </p>
-
-
-                    <p class="subtitle" id="sect_settings">Settings</p>
-
-                    <p>
-                        Currently the settings (apart from those on the main page) involve only the possibility to change the captions on the screen. These all contain their default value on start-up, which can be overwritten if needed. In particular, inducers may be modified
-                        to the native language of the examinee. The instructions can be either explained or (since precise translation is not of essence in this case) they can be auto-translated (e.g. Google-translate in Chrome).
-                    </p>
-
-                    <p class="subtitle" id="sect_results">Results</p>
-
-                    <p>
-                        At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may
-                        be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the
-                        clipboard content is lost.) The data is also accessible through Chrome's developement console, in which it is displayed automatically after the end of the test (and contained in the <i>cit_data</i> variable).
-                        This data contains all responses (one per row) from the test, with all relevant information, corresponding to the titles in the first row.<br>
-                        <span class="expandable" id="expand4" onclick="$(this).hide();$('#expand_content4').show();$('#hide4').show();">Expand.</span>
-                        <span class="expandable" id="hide4" onclick="$(this).hide();$('#expand_content4').hide();$('#expand4').show();" style="display:none;">(Hide.)<br></span>
-                        <span class="expanded" id="expand_content4">
-                            <b>subject_id</b>: The subject identification text as given on the starting page.
-                            <br><b>cit_version</b>: The CIT version as selected on the starting page.
-                            <br><b>block_number</b>: The number of the block.
-                            <br><b>trial_number</b>: The number of the trial.
-                            <br><b>stimulus_shown</b>: The specific text of the stimulus that was displayed on the screen.
-                            <br><b>category</b>: Either "main_item" (probe, irrelevant, or target), or "inducer" (familiar-referring or unfamiliar-referring).
-                            <br><b>stim_type</b>: More specific type: probe, irrelevant, target, familiar-referring inducer, or unfamiliar-referring inducer.
-                            <br><b>response_key</b>: The response key that was used ("e" or "i"), regardless whether it was correct or not.
-                            <br><b>rt</b>: The response time (from the start of the presentation of the stimulus until the pressing of the response key); in ms.
-                            <br><b>incorrect</b>: Whether the response was correct: 1 for incorrect, 0 for correct.
-                            <br><b>too_slow</b>: Whether the response was too slow: 1 for too slow, 0 for not too slow.
-                            <br><b>date_in_ms</b>: The number of milliseconds elapsed since January 1, 1970, 00:00:00 UTC. (This documents the exact time and duration of the experiment, allows to calculate the length of pauses taken between the blocks, etc.)
-                        </span>
-                    </p>
-
-                    <p class="subtitle" id="sect_eval">Evaluation</p>
-
-                    <p>
-                        As an intra-individual effect size (<a class="links" href="https://doi.org/10.1002/acp.2910" target="_blank">Noordraven & Verschuere, 2013</a>), a <i>d</i><sub>CIT</sub> can be calculated as the probe RT mean minus the irrelevant
-                        RT mean, divided by the standard deviation of irrelevant RTs: ( <i>M</i><sub>RT(probe)</sub> − <i>M</i><sub>RT(irrelevant)</sub> ) / <i>SD</i><sub>RT(irrelevant)</sub>
-                        <br>This can be calculated from the results file, but it is also already automatically calculated and displayed at the end of each test in this application.
-                        <br>The values of this measure typically fall between around -0.3 and 0.8; where a larger number always indicates a larger likelihood of guilt (i.e., recognition of the probe). The optimal cut-off value used as a boundary for the
-                        evaluation as guilty or innocent varies by study.
-                        <br>Still, for an immediate informative feedback for each test in this application, evaluative labels were implemented with boundaries based on a rough approximation in view of previous results. These boundaries are depicted in
-                        the following table.
-
-                        <table align="center">
-
-                            <tr class="border_bottom">
-                                <th>Boundaries</th>
-
-                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                <th>Evaluative label</th>
-                            </tr>
-                            <tr>
-                                <td><i>d</i><sub>CIT</sub> > 0.4</td>
-                                <td></td>
-                                <td>strong indication of guilt</td>
-                            </tr>
-                            <tr>
-                                <td><i>d</i><sub>CIT</sub> > 0.3 and <i>d</i><sub>CIT</sub>
-                                    <=0 .4</td>
-                                        <td></td>
-                                        <td>fair indication of guilt</td>
-                            </tr>
-                            <tr>
-                                <td><i>d</i><sub>CIT</sub> > 0.1 and <i>d</i><sub>CIT</sub>
-                                    <=0 .3</td>
-                                        <td></td>
-                                        <td>weak indication of guilt</td>
-                            </tr>
-                            <tr>
-                                <td><i>d</i><sub>CIT</sub> > 0 and <i>d</i><sub>CIT</sub>
-                                    <=0 .1</td>
-                                        <td></td>
-                                        <td>indeterminate</td>
-                            </tr>
-                            <tr>
-                                <td><i>d</i><sub>CIT</sub> > -0.1 and <i>d</i><sub>CIT</sub>
-                                    <=0 </td>
-                                        <td></td>
-                                        <td>weak indication of innocence</td>
-                            </tr>
-                            <tr class="border_bottom">
-                                <td><i>d</i><sub>CIT</sub>
-                                    <=- 0.1</td>
-                                        <td></td>
-                                        <td>fair indication of innocence</td>
-                            </tr>
-
-                        </table>
-                        <br> (Note that there is no strong indication of innocence: a very fast probe response is no more expected in case of innocence than in case of guilt.)
-                    </p>
-
-                    <p class="subtitle" id="sect_testing">Testing and example usage</p>
-                    <p>
-                        To experimentally test this application, one may for example enter the personal name (e.g., forename) of a participant as probe, and other, similar names as target and irrelevant items. (These latter items should be controlled for similarity to the extent possible; e.g., number of characters or syllables, word frequency, etc.) In this case, the participant's responses to the probe (own personal name) should be notably slower than the responses to the irrelevants (e.g., around 15-30 ms average difference). Correspondingly, the <i>d</i><sub>CIT</sub> should be relatively high as well (e.g., larger than 0.3). As a control condition, one may enter irrelevant names for all item types, so that the probe, irrelevant, and target items are all in fact irrelevant to the participant. In this case, the responses to the probe should be of similar speed as the responses to the irrelevants (since, again, the probe is not relevant to the participant and is not recognized as any different from the rest of the items).
-                    </p>
-                    <p>
-                        However, the basic framework of the application can be tested programmatically as well. This is done by a designated testing function that simulates human responses (keypresses) whenever an item in the task is displayed. This simulation can be activated by simply entering the function <i>citapp_testing_on()</i> into the Chrome DevTools Console (F12) anytime. By default, this function gives 100% correct responses in the first practice round (where this is required), and, for the rest of the task, 90% correct and 10% incorrect responses, with artificial response time randomly ranging from 350 to 600. These numbers can be changed by modifying any of the following parameters: <i>apptest_correct_ratio_first</i> (ratio from 0.0 to 1.0), <i>apptest_correct_ratio</i> (ratio from 0.0 to 1.0), <i>apptest_simulated_rt_min</i> (number in ms), and <i>apptest_simulated_rt_max</i> (number in ms). For example, entering <i>apptest_correct_ratio_first = 0.95, apptest_correct_ratio = 0.8, apptest_simulated_rt_min = 200, apptest_simulated_rt_max = 850</i> into the Console will simulate a participant who has 95% correct responses in the first practice round, and, for the rest of the task, 80% correct and 20% incorrect responses, with artificial response time randomly ranging from 200 to 850 (hence, some of them over the response time limit of 800, resulting in "too slow" responses). The simulation automatically proceeds to the next block (within a few seconds) as long as there are blocks left in the task. This can be changed using the parameter <i>move_to_next_block</i> (true or false), e.g. <i>apptest_move_to_next_block = false </i> will disable this, and the user has to press the appropriate button to start each block. By default, all items have the same simulated responses. However, guilt may be simulated using the variable <i>probe_delay</i> (number in ms), that adds a specified delay whenever the response is given to the probe. E.g., <i>apptest_probe_delay = 30</i> will always add 30 ms to the probe response. To stop testing (i.e., stop simulating keypresses), enter citapp_testing_off() anytime.
-                    </p>
-                    <p>
-                        Two output file examples are added under the <i>output_examples</i> folder. One is the result of simulating a guilty suspect, with settings: <i>apptest_correct_ratio_first = 1, apptest_correct_ratio = 0.95, apptest_simulated_rt_min = 500, apptest_simulated_rt_max = 650, apptest_probe_delay = 25</i>. The resulting  <i>d</i><sub>CIT</sub> was 0.58, and the raw difference between probe and irrelevant RT means was 24 ms. The file name is <i>CIT_app_test_sim_guilty_standard_2block_20181120002430.txt</i>. The other is the result of simulating an innocent examinee, with default settings (<i>apptest_correct_ratio_first = 1, apptest_correct_ratio = 0.9, apptest_simulated_rt_min = 350, apptest_simulated_rt_max = 600, apptest_probe_delay = 0</i>). The resulting  <i>d</i><sub>CIT</sub> was 0.03, and the raw difference between probe and irrelevant RT means was 2 ms. The file name is <i>CIT_app_test_sim_innocent_enhanced_3block_20181120003753.txt</i>.
-                    </p>
-
-                    <p class="subtitle" id="sect_plans">Planned features</p>
-                    - A no-target version will be implemented as soon as the related manuscript is accepted for publication
-                    <br> - More detailed end feedback; graphs based on the results (e.g. RT density per item)
-                    <br> - More settings; in particular the possibility to change any of the instruction texts
-                    <br> - Possibility to store settings locally
-                    <br> - Graphic (pictorial) stimuli
-
-                    <p class="subtitle" id="sect_refs">References</p>
-
-                    <p>
-                        <span class="hangindent">
-                        Lukács, G., Kleinberg, B., & Verschuere, B. (2017). Familiarity-related fillers improve the validity of reaction time-based memory detection. <i>Journal of Applied Research in Memory and Cognition, 6</i>(3), 295–305. <a class="links" href="https://doi.org/10.1016/j.jarmac.2017.01.013" target="_blank" style="font-style: normal;">https://doi.org/10.1016/j.jarmac.2017.01.013</a></span>
-                        <span class="hangindent">Noordraven, E., & Verschuere, B. (2013). Predicting the Sensitivity of the Reaction Time-based Concealed Information Test: Detecting deception with the Concealed Information Test. <i>Applied Cognitive Psychology, 27</i>(3), 328–335. <a class="links" href="https://doi.org/10.1002/acp.2910" target="_blank" style="font-style: normal;">https://doi.org/10.1002/acp.2910</a></span>
-                        <span class="hangindent">Seymour, T. L., Seifert, C. M., Shafto, M. G., & Mosmann, A. L. (2000). Using response time measures to assess “guilty knowledge”. <i>Journal of Applied Psychology, 85</i>(1), 30–37. <a class="links" href="https://doi.org/10.1037//0021-9010.85.1.30" target="_blank" style="font-style: normal;">https://doi.org/10.1037//0021-9010.85.1.30</a></span>
-
-                    </p>
-                    <br>
-                    <p class="subtitle" id="sect_contact" style="text-decoration:none;">Contact (re. contribution, issues, support):<span style="font-weight: normal;"> gaspar.lukacs@univie.ac.at</span></p>
-            </div>
         </div>
     </div>
+
+
 
     <div id="instructions" class="main_instr">
         <span style="position: relative;left: 42%;transform: translateX(-50%)"><b>Task instructions</b></span>
@@ -435,51 +252,6 @@
                 </div>
             </div>
 
-            <!--<table align="left">
-
-            <tr class="border_bottom">
-                <th>Boundaries</th>
-
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <th>Evaluative label</th>
-            </tr>
-            <tr>
-                <td><i>d</i><sub>CIT</sub> > 0.4</td>
-                <td></td>
-                <td>strong indication of guilt</td>
-            </tr>
-            <tr>
-                <td><i>d</i><sub>CIT</sub> > 0.3 and <i>d</i><sub>CIT</sub>
-                    <=0 .4</td>
-                        <td></td>
-                        <td>fair indication of guilt</td>
-            </tr>
-            <tr>
-                <td><i>d</i><sub>CIT</sub> > 0.1 and <i>d</i><sub>CIT</sub>
-                    <=0 .3</td>
-                        <td></td>
-                        <td>weak indication of guilt</td>
-            </tr>
-            <tr>
-                <td><i>d</i><sub>CIT</sub> > 0 and <i>d</i><sub>CIT</sub>
-                    <=0 .1</td>
-                        <td></td>
-                        <td>indeterminate</td>
-            </tr>
-            <tr>
-                <td><i>d</i><sub>CIT</sub> > -0.1 and <i>d</i><sub>CIT</sub>
-                    <=0 </td>
-                        <td></td>
-                        <td>weak indication of innocence</td>
-            </tr>
-            <tr class="border_bottom">
-                <td><i>d</i><sub>CIT</sub>
-                    <=- 0.1</td>
-                        <td></td>
-                        <td>fair indication of innocence</td>
-            </tr>
-
-        </table>-->
         </div>
     </div>
 

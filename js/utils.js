@@ -17,6 +17,17 @@ function valid_nums(evt) {
     }
 }
 
+function fill_up_demo() {
+    $("#exp_title_id").val("detect_relevant_date");
+    $("#subj_num_id").val("suspect_01");
+    $("#probe_id").val('May 9');
+    $("#targ_id").val('August 25');
+    $("#irr1_id").val('June 14');
+    $("#irr2_id").val('December 5');
+    $("#irr3_id").val('February 12');
+    $("#irr4_id").val('March 29');
+}
+
 function valid_chars(evt) {
     var theEvent = evt || window.event;
     var key = theEvent.keyCode || theEvent.which;
@@ -58,7 +69,7 @@ function change_div(
 function change_menu(
     menu_to_show
 ) {
-    ['cit_tab', 'settings_tab', 'about_tab'].forEach(function(memuee) {
+    ['cit_tab', 'settings_tab', 'demo_tab'].forEach(function(memuee) {
         $("#" + memuee).hide();
         $("#" + memuee + "_nav").css("background", "#333333");
         $("#" + memuee + "_nav").css("color", "#fff");
@@ -260,6 +271,7 @@ function evulat_dcit(d_cit) {
 }
 // end task
 var f_name;
+
 function end_save() {
     selectable_bg();
     f_name =
@@ -277,12 +289,12 @@ function end_save() {
     var outcome = evulat_dcit(dcit);
     outcome += " (The raw difference between probe and irrelevant RT means is about " + Math.round(mean(all_main_rts.probs) - mean(all_main_rts.irrs)) + " ms.)";
     to_display = "This <i>d</i><sub>CIT</sub> for the current test is " + (Math.ceil(dcit * 100) / 100).toFixed(2) + outcome;
-    console.log(to_display + "\n\nFile name: " + f_name  + "\n\nFull data:\n");
+    console.log(to_display + "\n\nFile name: " + f_name + "\n\nFull data:\n");
     console.log(cit_data);
     $("#end_summary_id").html(to_display);
     $("#div_outro_end").hide();
     $("#div_end_screen").show();
-    copy_to_clip();    
+    copy_to_clip();
 }
 
 function dl_as_file(filename_to_dl, data_to_dl) {
@@ -296,11 +308,13 @@ function dl_as_file(filename_to_dl, data_to_dl) {
     elemx.click();
     document.body.removeChild(elemx);
 }
+
 function copy_to_clip() {
     element = $('<textarea>').appendTo('body').val(cit_data).select();
     document.execCommand("Copy");
     element.remove();
 }
+
 function neat_date() {
     var m = new Date();
     return m.getFullYear() + "" +

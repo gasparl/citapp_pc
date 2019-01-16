@@ -6,7 +6,7 @@ Author: Gáspár Lukács
 
 Contact: gaspar.lukacs@univie.ac.at
 
-Below you find the documentation of the of the Concealed Information Test application (v1.0.0), by sections _Requirements_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _References_.
+Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _References_.
 
 **Requirements**
 
