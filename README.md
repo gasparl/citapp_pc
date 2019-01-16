@@ -107,6 +107,10 @@ Two example output files are added under the _output\_examples_ folder. One is t
 - Possibility to store settings locally
 - Graphic (pictorial) stimuli
 
+**Issues**
+
+If you find any issues (bugs, desired features), write an email or open a new issue via https://github.com/gasparl/citapp_pc/issues
+
 **References**
 
 Lukács, G., Kleinberg, B., & Verschuere, B. (2017). Familiarity-related fillers improve the validity of reaction time-based memory detection. _Journal of Applied Research in Memory and Cognition, 6_(3), 295–305. https://doi.org/10.1016/j.jarmac.2017.01.013
