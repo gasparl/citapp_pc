@@ -1,21 +1,24 @@
 **Concealed Information Test application**
 
-November 20, 2018
+January 17, 2019
 
 Author: Gáspár Lukács
 
 Contact: gaspar.lukacs@univie.ac.at
 
-Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
+Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
 
-**Requirements**
+Note that this documentation is also available in PDF format: [CITapp_documentation.pdf](https://github.com/gasparl/citapp_pc/blob/master/CITapp_documentation.pdf "CITapp_documentation")
+
+**Requirements and usage instructions**
 
 This application needs no installation whatsoever, it can and should be run in a _Google Chrome_ browser (v25 or above). There are no further dependencies or system requirements. The entire application works offline: no internet connection is needed.
 
+The easiest way to use the application is via the [site of the repository itself](https://gasparl.github.io/citapp_pc/CITapp.html "CITapp"). (Note that no data is saved or sent anywhere on the server. In fact, once loaded into the browser, the test may again be used entirely offline as well.)
 
-1. https://gasparl.github.io/citapp_pc/CITapp.html
+However, the application can of course also be downloaded or forked and/or cloned via Git. This has three advantages. Firstly, the application will not be affected by updates. This may be desired when it is used for an experimental study where the interface and all settings are preferred to remain identical throughout the data collection. Secondly, the application will always be available offline (in case of downloading it). Thirdly, the code can then be modified for specific purposes. For example, in a simple case, the experiment title name and settings may be given a new default values to be used in a series of tests of a study.
 
-2. download simply, or fork it via git. Then the code can also be modified for specific purposes. Then open in Chrome offline (The main _CITapp.html_ file can be for example simple dragged into a new window or tab of the open browser.). or uppload to own server to use online.
+If the application is downloaded on a PC into a local folder (including all directories and files in the repository), it can simple be opened in Chrome (e.g., by dragging the main _CITapp.html_ into a new window or tab of the open browser). Otherwise, these file can also be uploaded to a server to make it available online. If the application is forked or copied into a new GitHub repository, a webpage for the application may also be easily created using GitHub Pages (available under repository Settings).
 
 **Introduction**
 
