@@ -18,7 +18,7 @@ The easiest way to use the application is via the [site of the repository itself
 
 However, the application can of course also be downloaded or forked and/or cloned via Git. This has three advantages. Firstly, the application will not be affected by updates. This may be desired when it is used for an experimental study where the interface and all settings are preferred to remain identical throughout the data collection. Secondly, the application will always be available offline (in case of downloading it). Thirdly, the code can then be modified for specific purposes. For example, in a simple case, the experiment title name and settings may be given a new default values to be used in a series of tests of a study.
 
-If the application is downloaded on a PC into a local folder (including all directories and files in the repository), it can simple be opened in Chrome (e.g., by dragging the main _CITapp.html_ into a new window or tab of the open browser). Otherwise, these file can also be uploaded to a server to make it available online. If the application is forked or copied into a new GitHub repository, a webpage for the application may also be easily created using GitHub Pages (available under repository Settings).
+If the application is downloaded on a PC into a local folder (including all directories and files in the repository), it can simply be opened in Chrome (e.g., by dragging the main _CITapp.html_ into a new window or tab of the open browser). Otherwise, these file can also be uploaded to a server to make it available online. If the application is forked or copied into a new GitHub repository, a webpage for the application may also be easily created using GitHub Pages (available under repository Settings).
 
 **Introduction**
 
