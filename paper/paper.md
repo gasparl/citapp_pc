@@ -27,15 +27,15 @@ The standard RT-CIT includes a single (randomly chosen) target irrelevant item t
 
 This application requires no technical knowledge; it can simply be opened and used in a Google Chrome browser. Furthermore, by uploading it on any server, it can also be made available online, where it can then be easily accessed anytime, from anywhere. One online version is always available directly via the [site of the repository itself](https://gasparl.github.io/citapp_pc/CITapp.html "CITapp"). Once loaded into the browser, it may again be used offline as well.
 
-The details and settings of the test can be entered and selected, including the specification of the probe, irrelevant, and target items, on the start page; see the illustration below. After these basic information details are given, the test may be initiated. The examinee then simply has to follow the instructions on the screen. The full results data (and also a preliminary evaluation) are automatically provided and are downloadable after the completion of the test.
+The details and settings of the test can be entered and selected, including the specification of the probe, irrelevant, and target items, on the start page; see Figure 1. After these basic information details are given, the test may be initiated. The examinee then simply has to follow the instructions on the screen. The full results data (and also a preliminary evaluation) are automatically provided and downloadable after the completion of the test.
 
-![Startpage screenshot.](startpage.png)
+![Start page screenshot.](startpage.png)
 
 This is, at the same time, the very first publicly available application for a valid, scientifically proven lie detection method. While for now it is only intended for research purposes, this may provide the basis of a freely available test that in the future may be used by appropriate investigative and other authorities all over the world.
 
 # Note
 
-The basic framework of this application was first used in a recent online study; the resulting manuscript is currently under review [@lukacs2019]. An even more similar offline version is being used in a currently ongoing experiment. Still, even compared to the latter, the vital difference in the present application is the user interface that allows the task to be easily customized without any technical expertise (in particular, to conveniently enter and use any desired items for the test).
+The basic framework of this application was first used in a recent online study; the resulting manuscript is currently under review [@lukacs2019]. An even more similar offline version is being used in a currently ongoing experiment. Still, even compared to the latter, the vital difference in the present application is the user interface that allows the task to be easily administered without any technical expertise.
 
 # Acknowledgments
 
