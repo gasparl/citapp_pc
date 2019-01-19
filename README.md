@@ -1,6 +1,6 @@
 **Concealed Information Test application**
 
-January 17, 2019
+January 19, 2019
 
 Author: Gáspár Lukács
 
@@ -36,6 +36,10 @@ Enhanced RT-CIT: in addition to the items in the standard RT-CIT, this has famil
 
 _These inducer items induce a particular semantic context that increases the sensitivity of the method for the deception-related meaning of the probe. In the original study [link], the probes were general autobiographical details (birthday, favorite color, etc.), and, correspondingly, the inducers were familiarity-related: Inducers referring to the category familiar (e.g., "FAMILIAR," "MINE") had to be categorized with the same key as the target and, thus, with the opposite key than the probe (and the irrelevants), while inducers referring to the category unfamiliar (e.g., "OTHER," "THEIRS") had to be categorized with the same key as the probe (and irrelevants). It was assumed that in this way the inducers draw attention to the semantic meaning of the alternative response choices in view of the deception detection scenario (namely, that guilty examinees are denying their familiarity with the probe), thereby increasing the response conflict when the probe appears, making the response even slower. Moreover, the increased cognitive load (due to the increased complexity) also requires more attention throughout the task, which likely facilitates deeper processing of the stimuli. This method robustly increased the CIT accuracy of distinguishing guilty examinees from innocent ones._
 
+The CIT version version can be chosen on the start page, where the probe, target, and irrelevant items are also to be given.
+
+![Startpage screenshot.](example_images/example1_startpage.png)
+
 **Task design**
 
 The number of blocks can be chosen (1, 2, or 3). One block has the same length and arrangement as in all recent studies (_Lukács, Kleinberg, & Verschuere, 2017_). There is no data to show how many blocks per item categories (one probe with corresponding target and irrelevants) are optimal, but, as a rule of thumb, one block should give a fair estimation on the group level, while more than three would probably not serve much additional information even on the individual level.
@@ -46,13 +50,27 @@ _The main task is preceded by a comprehension check and two practice tasks. The 
 
 _In the following first practice task, the response window is longer (2 s), while the second practice task had the same design as the main task (800 ms response window). Both practice tasks consist of 9-14 trials, containing all possible main items in each, and several random inducer items in case of the enhanced version. In either practice task, in case of too few valid responses, the participants receives a corresponding feedback, and have to repeat the practice task. The requirement is a minimum 60% valid responses (correct key between 150 and 800 ms) for each of the following item types (when the given type exists in the given CIT version): targets; familiarity-referring inducers; unfamiliarity-referring inducers; main items (probes and irrelevants together)._
 
+In each block, after the instuctions, the trials can be started pressing space. During the comprehension test and the first practice task, reminding captions are displayed regarding the two reponse keys and their corresponding categories. (Starting from the second practice block (and throughout the entire task), no captions are displayed anymore.)
+
+![Task start screenshot.](example_images/example2_taskstart.png)
+
+After pressing space, the task items begin to appear in the middle of the screen.
+
+![Task items screenshot.](example_images/example3_taskitem.png)
+
 **Settings**
 
 Currently the settings (apart from those on the main page) involve only the possibility to change the captions on the screen. These all contain their default value on start-up, which can be overwritten if needed. In particular, inducers may be modified to the native language of the examinee. The instructions can be either explained or (since precise translation is not of essence in this case) they can be auto-translated (e.g. Google-translate in Chrome).
 
 **Results**
 
-At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the clipboard content is lost.) The data contains all responses (one per row) from the test, with all relevant information, corresponding to the self-explanatory titles in the first row.
+At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the clipboard content is lost.) 
+
+The following screenshot illustrates the results page in case of an examinee who was reacting significantly slower to the probe item relative to irrelevant items.
+
+![Results screenshot.](example_images/example4_results.png)
+
+The data contains all responses (one per row) from the test, with all relevant information, corresponding to the self-explanatory titles in the first row.
 
 _**subject\_id**: The subject identification text as given on the starting page._
 
@@ -117,7 +135,7 @@ Two example output files are added under the _output\_examples_ folder. One is t
 
 **Support**
 
-If you have any questions or find any issues (bugs, desired features), write an email or open a new issue via https://github.com/gasparl/citapp_pc/issues
+If you have any questions or find any issues (bugs, desired features), [write an email](mailto:lkcsgaspar@gmail.com) or [open a new issue](https://github.com/gasparl/citapp_pc/issues "Issues").
 
 **References**
 
