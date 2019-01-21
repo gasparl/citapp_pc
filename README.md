@@ -4,7 +4,7 @@ January 20, 2019
 
 Author: Gáspár Lukács
 
-Contact: gaspar.lukacs@univie.ac.at
+Contact: lkcsgaspar@gmail.com
 
 Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
 
@@ -127,7 +127,7 @@ Two example output files are added under the _output\_examples_ folder. One is t
 
 For convenience, there is a _Demo_ menu, under which the start page may be automatically filled by a simple button click. (The description of the example is given under the same menu.)
 
-Finally, for developement purposes, there is a _dev\_test()_ function, which executes all main functions that initiate the test, prepare the conditions, and, most importantly, generate the test items. The start page input fields are filled automatically using the _Demo_ data and settings. The function also checks whether, in case of either CIT version (standard or enhanced), the expected number of items are generated with the expected item texts (i.e., with the words that are entered on the start page). If no error occurs, the approval message is logged in the Console. Additionally, the function may be given a single argument: the number 1, or the number 2. Entering either will automatically initiate human simulation (with _apptest\_probe\_delay_ set to 25) after (and if) the previously described test was passed. Choosing _dev\_test(1)_ will complete the standard version, while _dev\_test(2)_ will complete the enhanced version. In case of no issues, the test should complete itself automatically. all the way until the end of test page.
+Finally, for developement purposes, there is a _dev\_test()_ function, which executes all main functions that initiate the test, prepare the conditions, and, most importantly, generate the test items. The start page input fields are filled automatically using the _Demo_ data and settings. The function also checks whether, in case of either CIT version (standard or enhanced), the expected number of items are generated with the expected item texts (i.e., with the words that are entered on the start page). If no error occurs, the approval message is logged in the Console. Additionally, the function may be given a single argument: the number 1, or the number 2. Entering either will automatically initiate human simulation (with _apptest\_probe\_delay_ set to 25) after (and if) the previously described test was passed. Choosing _dev\_test(1)_ will complete the standard version, while _dev\_test(2)_ will complete the enhanced version. In case of no issues, the test should complete itself automatically, all the way until the end of test page.
 
 **Planned features**
 
