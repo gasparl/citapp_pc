@@ -42,18 +42,22 @@ function keypress_sim() {
             info += chosen_response + "\n";
             console.log(info);
             if (apptest_move_to_next_block == true && teststim.length < 2 && blocknum < num_of_blocks ) {
-                simTimeout = setTimeout(function() {
-                    runblock();
-                    simTimeout = setTimeout(function() {
-                        $(document).trigger($.Event("keyup", {
-                            keyCode: "32"
-                        }));
-                    }, 3000);
-                }, 4000);
+                sim_block_move();
             }
         }
     }, rt_sim);
 }
 function citapp_testing_off() {
     app_testing = false;
+}
+
+function sim_block_move() {
+    simTimeout = setTimeout(function() {
+        runblock();
+        simTimeout = setTimeout(function() {
+            $(document).trigger($.Event("keyup", {
+                keyCode: "32"
+            }));
+        }, 3000);
+    }, 4000);
 }
