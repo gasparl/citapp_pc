@@ -42,15 +42,18 @@ function dev_test(do_sim = 99) {
     } else {
         console.log('Finished item generation, no issues.');
     }
+
+
+    blocknum = 1; // set back to first practice block
+    nextblock(); // prepares running a test
+
     // finally, if so set, automatically start simulating human testing
     if ( do_sim == 1 || do_sim == 2 ) {
-        blocknum = 1; // set back to first practice block
         apptest_probe_delay = 25;
         console.log('Simulation starts.');
         citapp_testing_on();
-        nextblock();
         sim_block_move();
-    } else {
+    } else { // otherwise, show instructions
         $('#instructions').show();
     }
 }
