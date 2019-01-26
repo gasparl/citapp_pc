@@ -1,0 +1,8 @@
+{
+  "name": "project-name",
+  "description": "My Project's Description",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jasmine-core": "*"
+  }
+}
