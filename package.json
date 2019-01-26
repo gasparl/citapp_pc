@@ -1,7 +1,7 @@
 {
-  "name": "project-name",
-  "description": "My Project's Description",
-  "version": "0.0.1",
+  "name": "CITapp",
+  "description": "Concealed Information Test app",
+  "version": "1.0.1",
   "devDependencies": {
     "jasmine-core": "*"
   }
