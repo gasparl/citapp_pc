@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions are always welcome. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owner of this repository before making a change. 
+Contributions are always welcome. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owner of this repository before making a change.
 
 ## All Code Changes Happen Through Pull Requests
 
@@ -8,7 +8,7 @@ Contributions are always welcome. When contributing to this repository, please f
 2. If you've added code that should be tested, add tests.
 3. Make sure the syle of your code is consistent with that of the current one (indentation, etc.).
 4. If you've changed any relevant functionalities, update the README.md.
-5. Ensure the application is working correctly. The _dev\_test()_ function should pass without issues (see under _Testing and example usage_ in the [README.md](https://github.com/gasparl/citapp_pc/blob/master/README.md "README").
+5. Ensure the application is working correctly. The _dev\_test()_ function should pass without issues (see under _Testing and example usage_ in the [README.md](https://github.com/gasparl/citapp_pc/blob/master/README.md "README"). This function is also automatically executed on each git push (as _npm test_) via Travis CI: https://travis-ci.org/gasparl/citapp_pc
 6. Issue that pull request.
 
 ## Code of Conduct
@@ -32,6 +32,6 @@ advances
   address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
-  
+
 ## License
 By contributing to this repository, you agree that your contributions will be licensed under its BSD-2-Clause License.

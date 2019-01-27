@@ -1,12 +1,12 @@
 **Concealed Information Test application**
 
-January 20, 2019
+January 27, 2019
 
 Author: Gáspár Lukács
 
 Contact: lkcsgaspar@gmail.com
 
-Below you find the documentation of the of the Concealed Information Test application (v1.0.1), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
+Below you find the documentation of the of the Concealed Information Test application (v1.0.2), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
 
 Note that this documentation is also available in PDF format: [CITapp_documentation.pdf](https://github.com/gasparl/citapp_pc/blob/master/CITapp_documentation.pdf "CITapp_documentation")
 
@@ -64,7 +64,7 @@ Currently the settings (apart from those on the main page) involve only the poss
 
 **Results**
 
-At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the clipboard content is lost.) 
+At the end of the test, first there is only a simple notification that the test has ended. This has to be closed using a red X button at the bottom right. Afterwards, the full results data can be accessed several ways. Using two separate buttons, it may be downloaded as a file, or copied to the system clipboard so that it may be pasted into an editor and saved. (The data is actually automatically copied to the clipboard at the end of the task; the button serves only in case the clipboard content is lost.)
 
 The following screenshot illustrates the results page in case of an examinee who was reacting significantly slower to the probe item relative to irrelevant items.
 
