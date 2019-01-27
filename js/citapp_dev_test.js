@@ -26,7 +26,7 @@ function dev_test(do_sim = 99) {
     }
     // generate Enhanced items
     getAllTestStimuli_induced();
-    if ( teststim.length != 162 ) {
+    if ( teststim.length != 163 ) {
         valid_test = false;
         console.log("stims0.length not 108, but:", teststim.length);
     }

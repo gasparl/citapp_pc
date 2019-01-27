@@ -25,7 +25,7 @@ function fill_up_demo() {
     $("#irr1_id").val('JUN 14');
     $("#irr2_id").val('DEC 05');
     $("#irr3_id").val('FEB 12');
-    //$("#irr4_id").val('MAR 29');
+    $("#irr4_id").val('MAR 29');
 }
 
 function valid_chars(evt) {
