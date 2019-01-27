@@ -245,7 +245,7 @@ function randomDegrade(arrayOf6dicts) {
             temp6 = [groupOf6_rand[0]];
             fail = 0;
             var leng = groupOf6_rand.length; // actually 5 if there is no target
-            for (var i = 1; i < leng; i++) {
+            for (var i = 1; i < leng+1; i++) {
                 var newDictItem = groupOf6_rand[i];
                 var skip = [];
                 for (placeIndex = 0; placeIndex < temp6.length; placeIndex++) {
