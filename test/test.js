@@ -1,8 +1,3 @@
-function end_test() {
-      it("All tests passed.", function() {
-        expect( true ).toBe(true);
-      });
-}
 function run_sims(sim_type, done) {
     dev_test(sim_type);
     count_checks = 0;
@@ -33,7 +28,6 @@ function run_sims(sim_type, done) {
         }
     }, 1000*10 );
 }
-
 describe("suite", function() {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000*60*15; // wait altogether 15 mins max
     it("All tests passed.", function(done) {
