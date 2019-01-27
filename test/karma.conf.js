@@ -63,28 +63,28 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    //browsers: ['PhantomJS'],
-    browsers: ['ChromeHeadlessNoSandbox'],
-    customLaunchers: {
-      ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: [
-                '--no-sandbox',
-                '--disable-gpu',
-                '--enable-logging',
-                '--no-default-browser-check',
-                '--no-first-run',
-                '--disable-default-apps',
-                '--disable-popup-blocking',
-                '--disable-translate',
-                '--disable-background-timer-throttling',
-                '--disable-renderer-backgrounding',
-                '--disable-device-discovery-notifications',
-                '--remote-debugging-port=9222',
-                '--disable-web-security'
-        ]
-      }
-    },
+    browsers: ['PhantomJS'],
+    // browsers: ['ChromeHeadlessNoSandbox'],
+    // customLaunchers: {
+    //   ChromeHeadlessNoSandbox: {
+    //     base: 'ChromeHeadless',
+    //     flags: [
+    //             '--no-sandbox',
+    //             '--disable-gpu',
+    //             '--enable-logging',
+    //             '--no-default-browser-check',
+    //             '--no-first-run',
+    //             '--disable-default-apps',
+    //             '--disable-popup-blocking',
+    //             '--disable-translate',
+    //             '--disable-background-timer-throttling',
+    //             '--disable-renderer-backgrounding',
+    //             '--disable-device-discovery-notifications',
+    //             '--remote-debugging-port=9222',
+    //             '--disable-web-security'
+    //     ]
+    //   }
+    // },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
