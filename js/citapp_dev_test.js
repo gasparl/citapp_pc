@@ -56,4 +56,5 @@ function dev_test(do_sim = 99) {
     } else { // otherwise, show instructions
         $('#instructions').show();
     }
+    return valid_test;
 }
