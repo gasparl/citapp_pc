@@ -1,3 +1,9 @@
 language: node_js
 node_js:
  - "stable"
+notifications:
+  email:
+    recipients:
+      - lkcsgaspar@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
