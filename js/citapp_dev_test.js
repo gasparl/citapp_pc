@@ -3,17 +3,13 @@ function dev_test(do_sim = 99) {
     // initiate task using demo data
     if ( do_sim == 1 ) { // set to standard version if selected
         $("#standard_id").prop("checked", true);
+    } else { // set to enhanced version if selected
+        $("#enhanced_id").prop("checked", true);
     }
-    console.log('START1');
     fill_up_demo();
-
-    console.log('START2');
     $('#div_intro_general').hide();
     no_select_bg();
-    console.log('START3');
     starter();
-
-    console.log('START4');
     var test_words = stim_base[0].map(a => a.word);
     // skip target check
     div_after_instr = "#div_cit_blockstart";
@@ -49,18 +45,19 @@ function dev_test(do_sim = 99) {
         console.log('Finished item generation, no issues.');
     }
 
-
     blocknum = 1; // set back to first practice block
     nextblock(); // prepares running a test
-
     // finally, if so set, automatically start simulating human testing
     if ( do_sim == 1 || do_sim == 2 ) {
         apptest_probe_delay = 25;
-        console.log('Simulation starts.');
+        if ( do_sim == 1 ) {
+            console.log('Simulation (standard) starts.');
+        } else {
+            console.log('Simulation (enhanced) starts.');
+        }
         citapp_testing_on();
         sim_block_move();
     } else { // otherwise, show instructions
         $('#instructions').show();
     }
-    return valid_test;
 }
