@@ -1,11 +1,3 @@
-dev_test();
-function end_test() {
-    describe("suite", function() {
-      it("All tests passed.", function() {
-        expect( true ).toBe(true);
-      });
-    });
-}
 function run_sims(sim_type) {
     dev_test(sim_type);
     count_checks = 0;
@@ -23,7 +15,7 @@ function run_sims(sim_type) {
                 run_sims(sim_type+1);
             } else {
                 console.log('Simulation 2 (enhanced) finished.');
-                end_test();
+                expect( true ).toBe(true);
             }
         } else if ( count_checks*10/60 > 7 ) {
             clearInterval(check_end);
@@ -32,4 +24,9 @@ function run_sims(sim_type) {
         }
     }, 1000*10 );
 }
-run_sims(1);
+describe("suite", function() {
+  it("All tests passed.", function() {
+    dev_test();
+    run_sims(1);
+  });
+});
