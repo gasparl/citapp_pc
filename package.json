@@ -10,9 +10,10 @@
     "karma": "*",
     "karma-chrome-launcher": "^2.2.0",
     "karma-cli": "*",
+    "karma-fixture": "^0.2.6",
+    "karma-html2js-preprocessor": "*",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "phantomjs-prebuilt": "*",
-    "karma-html2js-preprocessor": "*"
+    "phantomjs-prebuilt": "*"
   }
 }

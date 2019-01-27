@@ -110,7 +110,9 @@ var inducer_items, subj_id, cit_version;
 var s_captions, e_captions;
 
 function starter() {
+    console.log('starter 1');
     chrome_check("Last warning! Your browser seems to be " + browser_name + ", and not Chrome. The application may fail or prove suboptimal in browsers other than Google Chrome.");
+    console.log('starter 2');
     experiment_title = $("#exp_title_id").val();
     subj_id = $("#subj_num_id").val();
     condition = parseInt($('input[name=cit_version]:checked').val());
@@ -141,8 +143,11 @@ function starter() {
         $("#e_left_id").val(),
         $("#e_right_id").val()
     ];
+    console.log('starter 3');
     cit_initials();
+    console.log('starter 4');
     create_stim_base();
+    console.log('starter 5');
 }
 //background changes
 function darken_bg() {

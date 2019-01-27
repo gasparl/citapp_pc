@@ -13,6 +13,8 @@ function create_stim_base() {
         $("#irr4_id").val()
     ];
     var stim_base_temp = [];
+    console.log('words_array');
+    console.log(words_array);
     words_array.forEach(function(word, num) {
         stim_base_temp.push({
             word: word,
@@ -28,13 +30,18 @@ function create_stim_base() {
             stim_base_temp[num].type = "irrelevant" + (num - 1);
         }
     });
+
     stim_base = [
             stim_base_temp,
             stim_base_temp,
             stim_base_temp
     ];
+    console.log(stim_base[0][1]);
+    console.log("item_base1");
     set_block_texts();
+    console.log("item_base2");
     set_cit_conditions();
+    console.log("item_base3");
 }
 function target_check() {
     if (

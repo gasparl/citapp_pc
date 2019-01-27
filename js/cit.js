@@ -11,6 +11,10 @@ function set_block_texts() {
     } else {
         change_hint = '<br><br>>However, you will now have to press different response keys....';
     }
+    console.log("set_block_texts 1");
+    console.log(stim_base[0][1]);
+
+    console.log(stim_base[1][1]);
     if (condition == 2 || condition == 5) {
         target_reminder = ["", "", "", ""];
     } else {
@@ -23,6 +27,7 @@ function set_block_texts() {
             "</b>. "
         ];
     }
+    console.log("set_block_texts 2");
     block_num_info = {
         4: "It will take about 3-5 minutes",
         5: "There will be two blocks. Each block will take about 3-5 minutes.",

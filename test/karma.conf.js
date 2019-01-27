@@ -3,9 +3,9 @@
 
 module.exports = function(config) {
   config.set({
-    preprocessors: {
-      '**/*.html': ['html2js']
-    },
+    // preprocessors: {
+    //   '**/*.html': ['html2js']
+    // },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -19,11 +19,19 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '../js/jquery-2.1.3.min.js',
+      '../js/jquery.mb.browser.min.js',
+      '../js/start.js',
+      '../js/utils.js',
+      '../js/cit.js',
+      '../js/item_base.js',
+      '../js/keypress_sim.js',
+      '../js/citapp_dev_test.js',
+      '../css/styles.css',
       '../CITapp.html',
-      'index.html',
+      //'index.html',
+      'add_html.js',
       'test.js'
     ],
-
 
     // list of files / patterns to exclude
     exclude: [
@@ -86,18 +94,19 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    html2JsPreprocessor: {
-      // strip this from the file path
-      stripPrefix: 'public/',
+    // html2JsPreprocessor: {
+    //   // strip this from the file path
+    //   stripPrefix: 'public/',
+    //
+    //   // prepend this to the file path
+    //   prependPrefix: 'served/',
+    //
+    //   // or define a custom transform function
+    //   processPath: function(filePath) {
+    //     // Drop the file extension
+    //     return filePath.replace(/\.html$/, '');
+    //   }
+    // }
 
-      // prepend this to the file path
-      prependPrefix: 'served/',
-
-      // or define a custom transform function
-      processPath: function(filePath) {
-        // Drop the file extension
-        return filePath.replace(/\.html$/, '');
-      }
-    }
   })
 }

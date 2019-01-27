@@ -4,10 +4,16 @@ function dev_test(do_sim = 99) {
     if ( do_sim == 1 ) { // set to standard version if selected
         $("#standard_id").prop("checked", true);
     }
+    console.log('START1');
     fill_up_demo();
+
+    console.log('START2');
     $('#div_intro_general').hide();
     no_select_bg();
+    console.log('START3');
     starter();
+
+    console.log('START4');
     var test_words = stim_base[0].map(a => a.word);
     // skip target check
     div_after_instr = "#div_cit_blockstart";
@@ -56,4 +62,5 @@ function dev_test(do_sim = 99) {
     } else { // otherwise, show instructions
         $('#instructions').show();
     }
+    return valid_test;
 }
