@@ -13,15 +13,14 @@ function run_sims(sim_type, done) {
         } else {
             console.log('Ongoing dev_test(2) - time passed (mins):', count_checks*10/60);
         }
+        console.log('---');
         if ( blocknum > num_of_blocks ) {
             clearInterval(check_end);
             if (sim_type == 1) {
-                console.log('---');
                 console.log('Simulation 1 (standard) finished.');
                 console.log('###');
                 run_sims(sim_type+1,done);
             } else {
-                console.log('---');
                 console.log('Simulation 2 (enhanced) finished.');
                 console.log('###');
                 expect( true ).toBe(true);
@@ -36,7 +35,7 @@ function run_sims(sim_type, done) {
 }
 
 describe("suite", function() {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000*60*15; // wait alltogether 15 mins max
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000*60*15; // wait altogether 15 mins max
     it("All tests passed.", function(done) {
         dev_test();
         run_sims(1, done);
