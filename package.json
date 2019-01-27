@@ -12,6 +12,7 @@
     "karma-cli": "*",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "phantomjs-prebuilt": "*"
+    "phantomjs-prebuilt": "*",
+    "karma-html2js-preprocessor": "*"
   }
 }

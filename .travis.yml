@@ -3,4 +3,3 @@ node_js:
  - "stable"
 install:
   - npm install
-script: npm test

@@ -3,6 +3,9 @@
 
 module.exports = function(config) {
   config.set({
+    preprocessors: {
+      '**/*.html': ['html2js']
+    },
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -15,6 +18,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      '../js/jquery-2.1.3.min.js',
+      '../CITapp.html',
+      'index.html',
       'test.js'
     ],
 
@@ -22,12 +28,6 @@ module.exports = function(config) {
     // list of files / patterns to exclude
     exclude: [
     ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
 
 
     // test results reporter to use
@@ -55,6 +55,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    //browsers: ['PhantomJS'],
     browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
@@ -83,6 +84,20 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    html2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'public/',
+
+      // prepend this to the file path
+      prependPrefix: 'served/',
+
+      // or define a custom transform function
+      processPath: function(filePath) {
+        // Drop the file extension
+        return filePath.replace(/\.html$/, '');
+      }
+    }
   })
 }
