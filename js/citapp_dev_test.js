@@ -46,7 +46,6 @@ function dev_test(do_sim = 99) {
 
     blocknum = 1; // set back to first practice block
     nextblock(); // prepares running a test
-
     // finally, if so set, automatically start simulating human testing
     if ( do_sim == 1 || do_sim == 2 ) {
         apptest_probe_delay = 25;
