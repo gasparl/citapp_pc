@@ -110,7 +110,6 @@ function inducersAdded(groupOf6) {
         if (stim_162_base[indx].blur == "yes") {
             inducerIndex = the9fills.indexOf(stim_162_base[indx].filler);
             stim_162_base.splice(indx, 0, inducers[inducerIndex]);
-            stim_162_base.splice(indx, 0, inducers[inducerIndex]);
             indx++;
         }
     }
