@@ -1,17 +1,9 @@
-
 function end_test() {
-    describe("suite", function() {
-
-      console.log(jasmine.DEFAULT_TIMEOUT_INTERVAL);
-      jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
-
-
       it("All tests passed.", function() {
         expect( true ).toBe(true);
       });
-    });
 }
-function run_sims(sim_type) {
+function run_sims(sim_type, done) {
     dev_test(sim_type);
     count_checks = 0;
     var check_end = setInterval( function() {
@@ -21,14 +13,19 @@ function run_sims(sim_type) {
         } else {
             console.log('Ongoing dev_test(2) - time passed (mins):', count_checks*10/60);
         }
-        if (blocknum > num_of_blocks) {
+        if ( blocknum > num_of_blocks ) {
             clearInterval(check_end);
             if (sim_type == 1) {
+                console.log('---');
                 console.log('Simulation 1 (standard) finished.');
-                run_sims(sim_type+1);
+                console.log('###');
+                run_sims(sim_type+1,done);
             } else {
+                console.log('---');
                 console.log('Simulation 2 (enhanced) finished.');
-                end_test();
+                console.log('###');
+                expect( true ).toBe(true);
+                done();
             }
         } else if ( count_checks*10/60 > 7 ) {
             clearInterval(check_end);
@@ -37,5 +34,11 @@ function run_sims(sim_type) {
         }
     }, 1000*10 );
 }
-dev_test();
-run_sims(1);
+
+describe("suite", function() {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000*60*15; // wait alltogether 15 mins max
+    it("All tests passed.", function(done) {
+        dev_test();
+        run_sims(1, done);
+    });
+});
