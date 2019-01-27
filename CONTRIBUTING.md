@@ -8,7 +8,7 @@ Contributions are always welcome. When contributing to this repository, please f
 2. If you've added code that should be tested, add tests.
 3. Make sure the syle of your code is consistent with that of the current one (indentation, etc.).
 4. If you've changed any relevant functionalities, update the README.md.
-5. Ensure the application is working correctly. The _dev\_test()_ function should pass without issues (see under _Testing and example usage_ in the [README.md](https://github.com/gasparl/citapp_pc/blob/master/README.md "README"). This function is also automatically executed on each git push (as _npm test_) via Travis CI: https://travis-ci.org/gasparl/citapp_pc
+5. Ensure the application is working correctly. The _dev\_test()_ function should pass without issues (see under _Testing and example usage_ in the [README.md](https://github.com/gasparl/citapp_pc/blob/master/README.md "README"). This function is also automatically executed on each git push (as _npm test_; executing _dev\_test()_, _dev\_test(1)_, and _dev\_test(2)_) via Travis CI: https://travis-ci.org/gasparl/citapp_pc
 6. Issue that pull request.
 
 ## Code of Conduct

@@ -3,6 +3,8 @@ function dev_test(do_sim = 99) {
     // initiate task using demo data
     if ( do_sim == 1 ) { // set to standard version if selected
         $("#standard_id").prop("checked", true);
+    } else { // set to enhanced version if selected
+        $("#enhanced_id").prop("checked", true);
     }
     fill_up_demo();
     $('#div_intro_general').hide();
@@ -43,17 +45,19 @@ function dev_test(do_sim = 99) {
         console.log('Finished item generation, no issues.');
     }
 
-
     blocknum = 1; // set back to first practice block
     nextblock(); // prepares running a test
     // finally, if so set, automatically start simulating human testing
     if ( do_sim == 1 || do_sim == 2 ) {
         apptest_probe_delay = 25;
-        console.log('Simulation starts.');
+        if ( do_sim == 1 ) {
+            console.log('Simulation (standard) starts.');
+        } else {
+            console.log('Simulation (enhanced) starts.');
+        }
         citapp_testing_on();
         sim_block_move();
     } else { // otherwise, show instructions
         $('#instructions').show();
     }
-    return valid_test;
 }
