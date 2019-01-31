@@ -272,6 +272,9 @@ function evulat_dcit(d_cit) {
 // end task
 var f_name;
 
+function ro(numbr) {
+    return (Math.round(numbr * 100) / 100).toFixed(2);
+}
 function end_save() {
     selectable_bg();
     f_name =
@@ -287,7 +290,7 @@ function end_save() {
         ".txt";
     var dcit = (mean(all_main_rts.probs) - mean(all_main_rts.irrs)) / sd(all_main_rts.irrs);
     var outcome = evulat_dcit(dcit);
-    outcome += " (The raw difference between probe and irrelevant RT means is about " + Math.round(mean(all_main_rts.probs) - mean(all_main_rts.irrs)) + " ms.)";
+    outcome += " (The difference between probe and irrelevant RT means is about " + Math.round(mean(all_main_rts.probs) - mean(all_main_rts.irrs)) + " ms. [Probe M±SD = " + ro( mean(all_main_rts.probs) ) + "±" + ro( sd(all_main_rts.probs) ) + "; Irrelevant M±SD = " + ro( mean(all_main_rts.irrs) ) + "±" + ro( sd(all_main_rts.irrs) ) + "])";
     to_display = "This <i>d</i><sub>CIT</sub> for the current test is " + (Math.ceil(dcit * 100) / 100).toFixed(2) + outcome;
     console.log(to_display + "\n\nFile name: " + f_name + "\n\nFull data:\n");
     console.log(cit_data);
