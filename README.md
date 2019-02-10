@@ -6,7 +6,7 @@ Contact: lkcsgaspar@gmail.com
 
 [![Build Status](https://travis-ci.org/gasparl/citapp_pc.svg?branch=master)](https://travis-ci.org/gasparl/citapp_pc)
 
-Below you find the documentation of the of the Concealed Information Test application (v1.0.2), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
+Below you find the documentation of the of the Concealed Information Test application (v1.0.3), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _References_.
 
 Note that this documentation is also available in PDF format: [CITapp_documentation.pdf](https://github.com/gasparl/citapp_pc/blob/master/CITapp_documentation.pdf "CITapp_documentation")
 
