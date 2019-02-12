@@ -7,7 +7,7 @@ var all_conditions = [0, 1, 2, 3, 4, 5]; // 0/3: RF-CIT, 1/4: ID-EAST CIT, 2/5: 
 var condition;
 var subj_id;
 var response_deadline, teststim, prac_teststim;
-var response_deadline_main = 800;
+var response_deadline_main = 1000;
 var basic_times = {};
 var num_of_blocks; // including practice, starting at 1
 var bg_color = "#031116";

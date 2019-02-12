@@ -572,7 +572,7 @@ function add_response() {
         curr_type = act_type;
     } else {
         curr_type = "main_item";
-        if (blocknum > 3 && incorrect != 1 && tooslow != 1 && rt_start > 150 && rt_start < 800) {
+        if (blocknum > 3 && incorrect != 1 && tooslow != 1 && rt_start > 150 && rt_start < response_deadline_main) {
             if (act_type == "probe") {
                 all_main_rts.probs.push(rt_start);
             } else {

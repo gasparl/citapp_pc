@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions are always welcome. When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owner of this repository before making a change.
+Contributions are always welcome: see e.g. _Planned features_ in the [README.md](https://github.com/gasparl/citapp_pc/blob/master/README.md "README"). When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owner of this repository before making a change.
 
 ## All Code Changes Happen Through Pull Requests
 
