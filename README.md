@@ -4,7 +4,7 @@ Author: Gáspár Lukács
 
 Contact: lkcsgaspar@gmail.com
 
-[![DOI](http://joss.theoj.org/papers/10.21105/joss.01179/status.svg)](https://doi.org/10.21105/joss.01179)[![Build Status](https://travis-ci.org/gasparl/citapp_pc.svg?branch=master)](https://travis-ci.org/gasparl/citapp_pc) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2561205.svg)](https://doi.org/10.5281/zenodo.2561205)
+[![DOI](http://joss.theoj.org/papers/10.21105/joss.01179/status.svg)](https://doi.org/10.21105/joss.01179) [![Build Status](https://travis-ci.org/gasparl/citapp_pc.svg?branch=master)](https://travis-ci.org/gasparl/citapp_pc) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2561205.svg)](https://doi.org/10.5281/zenodo.2561205)
 
 
 Below you find the documentation of the of the Concealed Information Test application (v1.0.4), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _Citation_, _References_.
