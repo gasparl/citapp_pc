@@ -5,7 +5,7 @@ function run_sims(sim_type, done) {
         count_checks++;
         if (sim_type == 1) {
             console.log('Ongoing dev_test(1) - time passed (mins):', count_checks*10/60);
-        } else (sim_type == 2) {
+        } else if (sim_type == 2) {
             console.log('Ongoing dev_test(2) - time passed (mins):', count_checks*10/60);
         } else {
             console.log('Ongoing dev_test(3) - time passed (mins):', count_checks*10/60);
