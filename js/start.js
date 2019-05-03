@@ -16,6 +16,7 @@ var browser_name = $.browser.name;
 
 $(document).ready(function() {
     chrome_check("Your browser was detected to be " + browser_name + "! This test was optimized for and should be run in Google Chrome. Please make sure you use the appropriate browser.");
+    home_binds();
     $("#div_intro_general").show(); //div_intro_general div_cit_main // div_intro_consent div_outro_end div_end_screen
 });
 function chrome_check(detected_text) {
@@ -25,4 +26,23 @@ function chrome_check(detected_text) {
         $("#not_chrome_warn").html("<br><i><b>Warning!</b> The application was designed for Google Chrome, but your browser was detected to be " + browser_name + ".</i>");
         $("#not_chrome_warn").show();
     }
+}
+
+function home_binds() {
+    $('input[type=radio][name=cit_version]').change(function() {
+        if (this.id == 'notarget_id') {
+            $("#targ_id").attr("disabled", "disabled");
+            if ( $("#targ_id").val() == "" ) {
+                $("#targ_id").val("   ");
+            }
+            $('#targ_line_id').css('background-color', '#b3b3b3');
+        }
+        else if ( $("#targ_id").is(":disabled") ) {
+            $('#targ_line_id').css('background-color', 'transparent');
+            if ( $("#targ_id").val() == "   " ) {
+                $("#targ_id").val("");
+            }
+            $("#targ_id").removeAttr("disabled");
+        }
+    });
 }

@@ -17,6 +17,8 @@ function valid_nums(evt) {
     }
 }
 
+
+
 function fill_up_demo() {
     $("#exp_title_id").val("detect_relevant_date");
     $("#subj_num_id").val("suspect_01");
@@ -116,8 +118,12 @@ function starter() {
     condition = parseInt($('input[name=cit_version]:checked').val());
     if (condition == 0) {
         cit_version = "standard";
-    } else {
+    } else if (condition == 1 ) {
         cit_version = "enhanced";
+    } else if (condition == 2 ) {
+        cit_version = "notarget";
+    } else {
+        cit_version = "-";        
     }
     num_of_blocks = parseInt($('input[name=num_of_blcks]:checked').val()) + 3;
     inducer_items = [

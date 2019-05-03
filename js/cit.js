@@ -642,6 +642,11 @@ function call_practice_stim() {
     practice_num++;
 }
 
+function if_no_targ() {
+    if (condition == 2 || condition == 5) {
+        nextblock();
+    }    
+}
 function nextblock() {
     $("*").css("cursor", "auto");
     if (blocknum <= num_of_blocks) {

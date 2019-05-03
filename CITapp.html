@@ -25,7 +25,7 @@
             <li class="menu_list" id="cit_tab_nav" onclick="change_menu('cit_tab')" style="color: #000;background-color: #ccc;font-weight: bold;"><a>CIT-start</a></li>
             <li class="menu_list" id="settings_tab_nav" onclick="change_menu('settings_tab')"><a>Settings</a></li>
             <li class="menu_list" id="demo_tab_nav" onclick="change_menu('demo_tab')"><a>Demo</a></li>
-            <li class="menu_version" style="float: right;"><a class="link_none" href="https://github.com/gasparl/citapp_pc/blob/master/README.md" target="_blank">v1.0.4</a></li>
+            <li class="menu_version" style="float: right;"><a class="link_none" href="https://github.com/gasparl/citapp_pc/blob/master/README.md" target="_blank">v1.1.0</a></li>
             <!-- <li class="menu_list" style="float: right;" id="about_tab_nav" onclick="change_menu('about_tab')"><a>About</a></li> -->
         </ul>
         <div style="padding: 3%;overflow: auto;height:78%;">
@@ -39,7 +39,7 @@
                         <br><br> CIT version:
                         <input type="radio" id="standard_id" name="cit_version" value="0"><label for="standard_id">standard</label>
                         <input type="radio" id="enhanced_id" name="cit_version" checked="checked" value="1"><label for="enhanced_id">enhanced</label>
-                        <!--<input type="radio" id="notarget_id" name="cit_version" value="2"><label for="notarget_id">no-target</label>-->
+                        <input type="radio" id="notarget_id" name="cit_version" value="2"><label for="notarget_id">no-target</label>
 
                         <br><br> Number of blocks:
                         <input type="radio" id="1block" name="num_of_blcks" checked="checked" value="1"><label for="1block">1</label>
@@ -52,9 +52,9 @@
                         Probe:
                         <input type="text" id="probe_id" class="form_start" maxlength="40" size="15">
                         <br>
-                        <br>Target:
+                        <span id = 'targ_line_id'><br>Target:
                         <input type="text" id="targ_id" class="form_start" maxlength="40" size="15">
-                        <br>
+                        <br></span>
                         <br>Irrelevant (1):
                         <input type="text" id="irr1_id" class="form_start" maxlength="40" size="15">
                         <br>
@@ -101,7 +101,7 @@
                         <br>
                         <br>
                         <br>
-                        <b>Enhanced version</b>
+                        <b>Enhanced and no-target versions</b>
                         <br><br> Caption at the top:
                         <input type="text" id="e_top_id" class="form_start" maxlength="40" size="15" value="familiar to you?">
                         <br>
@@ -113,7 +113,7 @@
 
                     </div>
                     <div style="flex: 50%;">
-                        <b><u>Inducers in the enhanced version</u></b>
+                        <b><u>Inducers in the enhanced and no-target versions</u></b>
                         <br>
                         <br>
                         <span style="line-height: 2.2;">
@@ -188,7 +188,7 @@
         <br>
         <br>
         <br>
-        <button class="main_button" style="position: relative;left: 50%;transform: translateX(-50%)" onclick="change_div(this, div_after_instr);">OK</button>
+        <button class="main_button" style="position: relative;left: 50%;transform: translateX(-50%)" onclick="change_div(this, div_after_instr, true, if_no_targ);">OK</button>
     </div>
 
     <div id="div_target_check" style="padding-bottom: 30%; width: 80%; height: 15%;" class="maintext">

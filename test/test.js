@@ -5,8 +5,10 @@ function run_sims(sim_type, done) {
         count_checks++;
         if (sim_type == 1) {
             console.log('Ongoing dev_test(1) - time passed (mins):', count_checks*10/60);
-        } else {
+        } else (sim_type == 2) {
             console.log('Ongoing dev_test(2) - time passed (mins):', count_checks*10/60);
+        } else {
+            console.log('Ongoing dev_test(3) - time passed (mins):', count_checks*10/60);
         }
         console.log('---');
         if ( blocknum > num_of_blocks ) {
@@ -15,8 +17,12 @@ function run_sims(sim_type, done) {
                 console.log('Simulation 1 (standard) finished.');
                 console.log('###');
                 run_sims(sim_type+1,done);
-            } else {
+            } else if (sim_type == 2) {
                 console.log('Simulation 2 (enhanced) finished.');
+                console.log('###');
+                run_sims(sim_type+1,done);
+            } else {
+                console.log('Simulation 3 (no-target) finished.');
                 console.log('###');
                 expect( true ).toBe(true);
                 done();
