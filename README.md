@@ -11,6 +11,8 @@ Below you find the documentation of the of the Concealed Information Test applic
 
 Note that this documentation is also available in PDF format: [CITapp_documentation.pdf](https://github.com/gasparl/citapp_pc/blob/master/CITapp_documentation.pdf "CITapp_documentation")
 
+For a smartphone-based version, see **https://github.com/gasparl/citapp_mobile**
+
 **Requirements and usage instructions**
 
 This application needs no installation whatsoever, it can and should be run in a _Google Chrome_ browser (v25 or above). There are no further dependencies or system requirements. The entire application works offline: no internet connection is needed.
