@@ -1,8 +1,6 @@
-**Concealed Information Test application**
+**NOTE: This application is out of date and unideal for several reasons (overly difficult practice trials, inflexible layout, etc.), and therefore it is primarily just for demonstration purposes. For a real RT-CIT study, I recommend using the smartphone-based version, see via https://github.com/gasparl/citapp_mobile.**
 
-Author: Gáspár Lukács
-
-Contact: lkcsgaspar@gmail.com
+### Concealed Information Test application
 
 [![DOI](http://joss.theoj.org/papers/10.21105/joss.01179/status.svg)](https://doi.org/10.21105/joss.01179) [![Build Status](https://travis-ci.org/gasparl/citapp_pc.svg?branch=master)](https://travis-ci.org/gasparl/citapp_pc) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2561205.svg)](https://doi.org/10.5281/zenodo.2561205)
 
@@ -10,8 +8,6 @@ Contact: lkcsgaspar@gmail.com
 Below you find the documentation of the of the Concealed Information Test application (v1.1.0), by sections _Requirements and usage instructions_, _Introduction_, _The CIT versions_, _Task design_, _Settings_, _Results_, _Evaluation_, _Planned features_, _Support_, _Citation_, _References_.
 
 Note that this documentation is also available in PDF format: [CITapp_documentation.pdf](https://github.com/gasparl/citapp_pc/blob/master/CITapp_documentation.pdf "CITapp_documentation")
-
-For a smartphone-based version, see **https://github.com/gasparl/citapp_mobile**
 
 **Requirements and usage instructions**
 
